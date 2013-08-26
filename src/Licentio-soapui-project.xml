@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Licentio" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SdkServiceSoapBinding" type="wsdl" bindingName="{http://sdk.ws.licentio.smarttrust.com/}SdkServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://10.208.162.182:7105/licentio/ws/sdk?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.208.162.182:7105/licentio/ws/sdk?WSDL"><con:part><con:url>http://10.208.162.182:7105/licentio/ws/sdk?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="SdkService" targetNamespace="http://sdk.ws.licentio.smarttrust.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sdk.ws.licentio.smarttrust.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://sdk.ws.licentio.smarttrust.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="authenticate" nillable="true" type="tns:authenticate"/>
+      <xs:element name="authenticateResp" nillable="true" type="tns:authenticateResp"/>
+      <xs:element name="changeLanguage" nillable="true" type="tns:changeLanguage"/>
+      <xs:element name="changeLanguageResponse" nillable="true" type="tns:changeLanguageResponse"/>
+      <xs:element name="resetPIN" nillable="true" type="tns:resetPIN"/>
+      <xs:element name="resetPINResponse" nillable="true" type="tns:resetPINResponse"/>
+      <xs:element name="retrieveOtp" nillable="true" type="tns:retrieveOtp"/>
+      <xs:element name="retrieveOtpResponse" nillable="true" type="tns:retrieveOtpResponse"/>
+      <xs:element name="sendOtp" nillable="true" type="tns:sendOtp"/>
+      <xs:element name="sendOtpResponse" nillable="true" type="tns:sendOtpResponse"/>
+      <xs:element name="sendSM" nillable="true" type="tns:sendSM"/>
+      <xs:element name="sendSMResponse" nillable="true" type="tns:sendSMResponse"/>
+      <xs:element name="validateOtp" nillable="true" type="tns:validateOtp"/>
+      <xs:element name="validateOtpResponse" nillable="true" type="tns:validateOtpResponse"/>
+      <xs:element name="verify" nillable="true" type="tns:verify"/>
+      <xs:element name="verifyResponse" nillable="true" type="tns:verifyResponse"/>
+      <xs:complexType name="validateOtp">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="otp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkValidateOtpResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sdkValidateOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:SdkResultType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveOtp">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="length" type="xs:int"/>
+          <xs:element name="lifetime" type="xs:int"/>
+          <xs:element name="otpseed" nillable="true" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkOtpResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sdkOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:SdkResultType"/>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string"/>
+          <xs:element minOccurs="0" name="otp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendSM">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="text" type="xs:string"/>
+          <xs:element name="validityPeriod" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendSMResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sdkResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:SdkResultType"/>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeLanguage">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="langFile" type="xs:byte"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeLanguageResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticate">
+        <xs:sequence>
+          <xs:element name="request" type="tns:authenticateRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticateRequest">
+        <xs:sequence>
+          <xs:element name="subject" type="xs:string"/>
+          <xs:element name="subjectType" type="tns:SubjectType"/>
+          <xs:element name="protocol" type="tns:Protocol"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticateResp">
+        <xs:sequence>
+          <xs:element name="response" type="tns:authenticateResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticateResponse">
+        <xs:sequence>
+          <xs:element name="mobileAuthentication" type="tns:MobileAuthenticationType"/>
+          <xs:element name="pollUrl" type="xs:string"/>
+          <xs:element name="language" type="xs:string"/>
+          <xs:element name="result" type="tns:AuthenticateResultType"/>
+          <xs:element name="transactionId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendOtp">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="length" type="xs:int"/>
+          <xs:element name="lifetime" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkOtpResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetPIN">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetPINResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="verify">
+        <xs:sequence>
+          <xs:element name="transactionId" type="xs:string"/>
+          <xs:element minOccurs="0" name="otp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="verifyResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:AuthenticateResultType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SdkResultType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="ERROR"/>
+          <xs:enumeration value="MSISDN_NOT_EXIST"/>
+          <xs:enumeration value="OTP_EXPIRED"/>
+          <xs:enumeration value="INVALID_LENGTH"/>
+          <xs:enumeration value="INVALID_VALIDITY_PERIOD"/>
+          <xs:enumeration value="NOT_VALID_OTP"/>
+          <xs:enumeration value="SEND_FAILURE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SubjectType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="EMAIL"/>
+          <xs:enumeration value="USERNAME"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Protocol">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SAML"/>
+          <xs:enumeration value="OPENID"/>
+          <xs:enumeration value="RADIUS"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MobileAuthenticationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OTP"/>
+          <xs:enumeration value="SIM"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AuthenticateResultType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="FAILED"/>
+          <xs:enumeration value="ONGOING"/>
+          <xs:enumeration value="INTERNAL_ERROR"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="changeLanguage">
+    <wsdl:part element="tns:changeLanguage" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resetPIN">
+    <wsdl:part element="tns:resetPIN" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendSMResponse">
+    <wsdl:part element="tns:sendSMResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="changeLanguageResponse">
+    <wsdl:part element="tns:changeLanguageResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticateResponse">
+    <wsdl:part element="tns:authenticateResp" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendOtpResponse">
+    <wsdl:part element="tns:sendOtpResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="authenticate">
+    <wsdl:part element="tns:authenticate" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateOtpResponse">
+    <wsdl:part element="tns:validateOtpResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendOtp">
+    <wsdl:part element="tns:sendOtp" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="resetPINResponse">
+    <wsdl:part element="tns:resetPINResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verifyResponse">
+    <wsdl:part element="tns:verifyResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveOtp">
+    <wsdl:part element="tns:retrieveOtp" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="sendSM">
+    <wsdl:part element="tns:sendSM" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="validateOtp">
+    <wsdl:part element="tns:validateOtp" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="retrieveOtpResponse">
+    <wsdl:part element="tns:retrieveOtpResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="verify">
+    <wsdl:part element="tns:verify" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Sdk">
+    <wsdl:operation name="validateOtp">
+      <wsdl:input message="tns:validateOtp" name="validateOtp"></wsdl:input>
+      <wsdl:output message="tns:validateOtpResponse" name="validateOtpResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveOtp">
+      <wsdl:input message="tns:retrieveOtp" name="retrieveOtp"></wsdl:input>
+      <wsdl:output message="tns:retrieveOtpResponse" name="retrieveOtpResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSM">
+      <wsdl:input message="tns:sendSM" name="sendSM"></wsdl:input>
+      <wsdl:output message="tns:sendSMResponse" name="sendSMResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeLanguage">
+      <wsdl:input message="tns:changeLanguage" name="changeLanguage"></wsdl:input>
+      <wsdl:output message="tns:changeLanguageResponse" name="changeLanguageResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <wsdl:input message="tns:authenticate" name="authenticate"></wsdl:input>
+      <wsdl:output message="tns:authenticateResponse" name="authenticateResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendOtp">
+      <wsdl:input message="tns:sendOtp" name="sendOtp"></wsdl:input>
+      <wsdl:output message="tns:sendOtpResponse" name="sendOtpResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPIN">
+      <wsdl:input message="tns:resetPIN" name="resetPIN"></wsdl:input>
+      <wsdl:output message="tns:resetPINResponse" name="resetPINResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verify">
+      <wsdl:input message="tns:verify" name="verify"></wsdl:input>
+      <wsdl:output message="tns:verifyResponse" name="verifyResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SdkServiceSoapBinding" type="tns:Sdk">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validateOtp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="validateOtp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateOtpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveOtp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="retrieveOtp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveOtpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSM">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendSM">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendSMResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeLanguage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="changeLanguage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="changeLanguageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="authenticate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="authenticateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendOtp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendOtp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendOtpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPIN">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="resetPIN">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="resetPINResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verify">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="verify">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="verifyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SdkService">
+    <wsdl:port binding="tns:SdkServiceSoapBinding" name="SdkPort">
+      <soap:address location="http://10.208.162.182:7105/licentio/ws/sdk"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:endpoint>http://zvss1:7105/licentio/ws/sdk?WSDL</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="authenticate" bindingOperationName="authenticate" type="Request-Response" outputName="authenticateResponse" inputName="authenticate" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:authenticate>
+         <request>
+            <subject>?</subject>
+            <subjectType>?</subjectType>
+            <protocol>?</protocol>
+         </request>
+      </sdk:authenticate>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/authenticate"/></con:call></con:operation><con:operation isOneWay="false" action="" name="changeLanguage" bindingOperationName="changeLanguage" type="Request-Response" outputName="changeLanguageResponse" inputName="changeLanguage" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:changeLanguage>
+         <msisdn>?</msisdn>
+         <langFile>?</langFile>
+      </sdk:changeLanguage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/changeLanguage"/></con:call></con:operation><con:operation isOneWay="false" action="" name="resetPIN" bindingOperationName="resetPIN" type="Request-Response" outputName="resetPINResponse" inputName="resetPIN" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:resetPIN>
+         <msisdn>?</msisdn>
+      </sdk:resetPIN>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/resetPIN"/></con:call></con:operation><con:operation isOneWay="false" action="" name="retrieveOtp" bindingOperationName="retrieveOtp" type="Request-Response" outputName="retrieveOtpResponse" inputName="retrieveOtp" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:retrieveOtp>
+         <msisdn>?</msisdn>
+         <length>?</length>
+         <lifetime>?</lifetime>
+         <otpseed>cid:1014370190230</otpseed>
+      </sdk:retrieveOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/retrieveOtp"/></con:call></con:operation><con:operation isOneWay="false" action="" name="sendOtp" bindingOperationName="sendOtp" type="Request-Response" outputName="sendOtpResponse" inputName="sendOtp" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendOtp>
+         <msisdn>?</msisdn>
+         <length>?</length>
+         <lifetime>?</lifetime>
+      </sdk:sendOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendOtp"/></con:call></con:operation><con:operation isOneWay="false" action="" name="sendSM" bindingOperationName="sendSM" type="Request-Response" outputName="sendSMResponse" inputName="sendSM" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendSM>
+         <msisdn>?</msisdn>
+         <text>?</text>
+         <validityPeriod>?</validityPeriod>
+      </sdk:sendSM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendSM"/></con:call></con:operation><con:operation isOneWay="false" action="" name="validateOtp" bindingOperationName="validateOtp" type="Request-Response" outputName="validateOtpResponse" inputName="validateOtp" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:validateOtp>
+         <msisdn>?</msisdn>
+         <otp>?</otp>
+      </sdk:validateOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/validateOtp"/></con:call></con:operation><con:operation isOneWay="false" action="" name="verify" bindingOperationName="verify" type="Request-Response" outputName="verifyResponse" inputName="verify" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:verify>
+         <transactionId>?</transactionId>
+         <!--Optional:-->
+         <otp>?</otp>
+      </sdk:verify>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify"/></con:call></con:operation></con:interface><con:testSuite name="SdkServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="authenticate TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="authenticate"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>authenticate</con:operation><con:request name="authenticate"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:authenticate>
+         <request>
+            <subject>?</subject>
+            <subjectType>?</subjectType>
+            <protocol>SAML</protocol>
+         </request>
+      </sdk:authenticate>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/authenticate" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="changeLanguage TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="changeLanguage"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>changeLanguage</con:operation><con:request name="changeLanguage"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:changeLanguage>
+         <msisdn>0046705562238</msisdn>
+         <langFile>12345</langFile>
+      </sdk:changeLanguage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Check for existance of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+exists( //ns2:changeLanguageResponse/result/result)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/changeLanguage" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="resetPIN TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="resetPIN_MSISDN_NOT_EXIST"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>resetPIN</con:operation><con:request name="resetPIN_MSISDN_NOT_EXIST"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:resetPIN>
+         <msisdn>46705562238</msisdn>
+      </sdk:resetPIN>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:resetPINResponse[1]/result[1]/result[1]/text()</path><content>ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/resetPIN" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="resetPIN"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>resetPIN</con:operation><con:request name="resetPIN"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:resetPIN>
+         <msisdn>0046705562238</msisdn>
+      </sdk:resetPIN>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:resetPINResponse[1]/result[1]/result[1]/text()</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [transactionId]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+exists( //ns2:resetPINResponse/result/transactionId)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/resetPIN" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="retrieveOtp TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="retrieveOtp_MSISDN_NOT_EXIST"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>retrieveOtp</con:operation><con:request name="retrieveOtp_MSISDN_NOT_EXIST"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:retrieveOtp>
+         <msisdn>46705562238</msisdn>
+         <length>6</length>
+         <lifetime>3</lifetime>
+         <otpseed>cid:1335799259739</otpseed>
+      </sdk:retrieveOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:retrieveOtpResponse[1]/result[1]/result[1]/text()</path><content>MSISDN_NOT_EXIST</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/retrieveOtp" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="retrieveOtp"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>retrieveOtp</con:operation><con:request name="retrieveOtp"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:retrieveOtp>
+         <msisdn>0046705562238</msisdn>
+         <length>6</length>
+         <lifetime>3</lifetime>
+         <otpseed></otpseed>
+      </sdk:retrieveOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:retrieveOtpResponse[1]/result[1]/result[1]/text()</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [otp]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+exists( //ns2:retrieveOtpResponse/result/otp)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/retrieveOtp" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sendOtp TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="sendOtp_MSISDN_NOT_EXIST"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>sendOtp</con:operation><con:request name="sendOtp_MSISDN_NOT_EXIST"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendOtp>
+         <msisdn>46705562238</msisdn>
+         <length>6</length>
+         <lifetime>10</lifetime>
+      </sdk:sendOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:sendOtpResponse[1]/result[1]/result[1]/text()</path><content>ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendOtp" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="sendOtp"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>sendOtp</con:operation><con:request name="sendOtp"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendOtp>
+         <msisdn>0046705562238</msisdn>
+         <length>6</length>
+         <lifetime>10</lifetime>
+      </sdk:sendOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:sendOtpResponse[1]/result[1]/result[1]/text()</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [transactionId]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+exists( //ns2:sendOtpResponse/result/transactionId)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [otp]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+exists( //ns2:sendOtpResponse/result/otp)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendOtp" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="sendSM TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="sendSM_MSISDN_NOT_EXIST"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>sendSM</con:operation><con:request name="sendSM_MSISDN_NOT_EXIST"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendSM>
+         <msisdn>46705562238</msisdn>
+         <text>qwerty</text>
+         <validityPeriod>3</validityPeriod>
+      </sdk:sendSM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:sendSMResponse[1]/result[1]/result[1]/text()</path><content>MSISDN_NOT_EXIST</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendSM" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="SendSM"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>sendSM</con:operation><con:request name="SendSM"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendSM>
+         <msisdn>0046705562238</msisdn>
+         <text>qwerty</text>
+         <validityPeriod>3</validityPeriod>
+      </sdk:sendSM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:sendSMResponse[1]/result[1]/result[1]/text()</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendSM" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="validateOtp TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="validateOtp_MSISDN_NOT_EXIST"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>validateOtp</con:operation><con:request name="validateOtp_MSISDN_NOT_EXIST"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:validateOtp>
+         <msisdn>46705562238</msisdn>
+         <otp>428733</otp>
+      </sdk:validateOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:validateOtpResponse[1]/result[1]/result[1]/text()</path><content>ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/validateOtp" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="validateOtp"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>validateOtp</con:operation><con:request name="validateOtp"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:validateOtp>
+         <msisdn>0046705562238</msisdn>
+         <otp>251398</otp>
+      </sdk:validateOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:validateOtpResponse[1]/result[1]/result[1]/text()</path><content>ERROR</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:validateOtpResponse[1]/result[1]/result[1]/text()</path><content>OK</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/validateOtp" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="verify TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="verify"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>verify</con:operation><con:request name="verify"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:verify>
+         <transactionId>030e718a58804cbcbab87bc0074f8200</transactionId>
+         <!--Optional:-->
+         <otp></otp>
+      </sdk:verify>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="TransactionId not found"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>verify</con:operation><con:request name="TransactionId not found"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:verify>
+         <transactionId>DDC8C45CE2BC2B74E04400144F48797B</transactionId>
+         <!--Optional:-->
+         <otp></otp>
+      </sdk:verify>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
+//ns2:verifyResponse[1]/result[1]/text()</path><content>FAILED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>Host</con:name><con:value>zvss2</con:value></con:property><con:property><con:name>Port</con:name><con:value>7105</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

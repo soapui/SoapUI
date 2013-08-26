@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="SDK Notification" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="SdkNotificationServiceSoapBinding" type="wsdl" bindingName="{http://sdknotification.ws.licentio.smarttrust.com/}SdkNotificationServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl?WSDL"><con:part><con:url>http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl?WSDL</con:url><con:content><![CDATA[<wsdl:definitions name="SdkNotificationService" targetNamespace="http://sdknotification.ws.licentio.smarttrust.com/" xmlns:ns1="http://sdknotification.ws.licentio.smarttrust.com" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sdknotification.ws.licentio.smarttrust.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl?wsdl=SdkNotification.wsdl" namespace="http://sdknotification.ws.licentio.smarttrust.com"></wsdl:import>
+  <wsdl:binding name="SdkNotificationServiceSoapBinding" type="ns1:SdkNotification">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="notification">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="notification">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="notificationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMessage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="incomingMessage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="incomingMessageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SdkNotificationService">
+    <wsdl:port binding="tns:SdkNotificationServiceSoapBinding" name="SdkNotificationPort">
+      <soap:address location="http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl?wsdl=SdkNotification.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SdkNotification" targetNamespace="http://sdknotification.ws.licentio.smarttrust.com" xmlns:ns1="http://sdknotification.ws.licentio.smarttrust.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://sdknotification.ws.licentio.smarttrust.com" version="1.0" xmlns:tns="http://sdknotification.ws.licentio.smarttrust.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="incomingMessage" type="tns:incomingMessage"/>
+      <xs:element name="incomingMessageResponse" type="tns:incomingMessageResponse"/>
+      <xs:element name="notification" type="tns:notification"/>
+      <xs:element name="notificationResponse" type="tns:notificationResponse"/>
+      <xs:complexType name="notification">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="transactionid" type="xs:string"/>
+          <xs:element name="status" type="tns:StatusType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificationResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incomingMessage">
+        <xs:sequence>
+          <xs:element name="message" type="xs:base64Binary"/>
+          <xs:element name="tar" type="xs:string"/>
+          <xs:element name="originatingAddress" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incomingMessageResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="StatusType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="EXPIRED"/>
+          <xs:enumeration value="FAILED"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="incomingMessageResponse">
+    <wsdl:part element="ns1:incomingMessageResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notification">
+    <wsdl:part element="ns1:notification" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="notificationResponse">
+    <wsdl:part element="ns1:notificationResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="incomingMessage">
+    <wsdl:part element="ns1:incomingMessage" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SdkNotification">
+    <wsdl:operation name="notification">
+      <wsdl:input message="ns1:notification" name="notification"></wsdl:input>
+      <wsdl:output message="ns1:notificationResponse" name="notificationResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMessage">
+      <wsdl:input message="ns1:incomingMessage" name="incomingMessage"></wsdl:input>
+      <wsdl:output message="ns1:incomingMessageResponse" name="incomingMessageResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="incomingMessage" bindingOperationName="incomingMessage" type="Request-Response" outputName="incomingMessageResponse" inputName="incomingMessage" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:incomingMessage>
+         <message>cid:699382925206</message>
+         <tar>?</tar>
+         <originatingAddress>?</originatingAddress>
+      </sdk:incomingMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/incomingMessage"/></con:call></con:operation><con:operation isOneWay="false" action="" name="notification" bindingOperationName="notification" type="Request-Response" outputName="notificationResponse" inputName="notification" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:notification>
+         <msisdn>?</msisdn>
+         <transactionid>?</transactionid>
+         <status>?</status>
+      </sdk:notification>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/notification"/></con:call></con:operation></con:interface><con:testSuite name="SdkNotificationServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="incomingMessage TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="Invalid MO message"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkNotificationServiceSoapBinding</con:interface><con:operation>incomingMessage</con:operation><con:request name="Invalid MO message"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:incomingMessage>
+         <message>cid:179042062110</message>
+         <tar>020B10</tar>
+         <originatingAddress>0046704455888</originatingAddress>
+      </sdk:incomingMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdknotification.ws.licentio.smarttrust.com';
+//ns2:incomingMessageResponse[1]/result[1]/text()</path><content>40</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/incomingMessage" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="MSISDN not found"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkNotificationServiceSoapBinding</con:interface><con:operation>incomingMessage</con:operation><con:request name="MSISDN not found"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:incomingMessage>
+         <message>cid:179042062110</message>
+         <tar>020B10</tar>
+         <originatingAddress>0046705562238</originatingAddress>
+      </sdk:incomingMessage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdknotification.ws.licentio.smarttrust.com';
+//ns2:incomingMessageResponse[1]/result[1]/text()</path><content>45</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/incomingMessage" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="notification TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="notification OK"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkNotificationServiceSoapBinding</con:interface><con:operation>notification</con:operation><con:request name="notification OK"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:notification>
+         <msisdn>046704455888</msisdn>
+         <transactionid>DDC8C45CE2BC2B74E04400144F48797B</transactionid>
+         <status>OK</status>
+      </sdk:notification>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdknotification.ws.licentio.smarttrust.com';
+//ns2:notificationResponse[1]/result[1]/text()</path><content>41</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/notification" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="transactionId not found"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkNotificationServiceSoapBinding</con:interface><con:operation>notification</con:operation><con:request name="transactionId not found"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:notification>
+         <msisdn>0046705562238</msisdn>
+         <transactionid>DDC8C45CE2BC2B74E04400144F48797B</transactionid>
+         <status>OK</status>
+      </sdk:notification>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdknotification.ws.licentio.smarttrust.com';
+//ns2:notificationResponse[1]/result[1]/text()</path><content>41</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdknotification.ws.licentio.smarttrust.com';
+//ns2:notificationResponse[1]/result[1]/text()</path><content>41</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/notification" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="MSISDN not found"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkNotificationServiceSoapBinding</con:interface><con:operation>notification</con:operation><con:request name="MSISDN not found"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#Host}:${#Project#Port}/vms/SdkNotificationService/SdkNotificationImpl</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdknotification.ws.licentio.smarttrust.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:notification>
+         <msisdn>0046705562238</msisdn>
+         <transactionid>DDC8C45CE2BC2B74E04400144F48797B</transactionid>
+         <status>NOK</status>
+      </sdk:notification>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdknotification.ws.licentio.smarttrust.com';
+//ns2:notificationResponse[1]/result[1]/text()</path><content>41</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdknotification.ws.licentio.smarttrust.com/SdkNotification/notification" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>Host</con:name><con:value>zvss1</con:value></con:property><con:property><con:name>Port</con:name><con:value>9080</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

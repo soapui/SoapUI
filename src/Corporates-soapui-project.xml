@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="Corporates" resourceRoot="" soapui-version="4.5.2" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="IncludeOverview">true</con:setting><con:setting id="IncludeResults">true</con:setting><con:setting id="FlowLayout">false</con:setting><con:setting id="ErrorDetails">true</con:setting><con:setting id="IncludeCoverage">true</con:setting></con:settings><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="corporates" path="/vms/rest/corporates"><con:settings/><con:parameters><con:parameter><con:name>limit</con:name><con:value/><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default/><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>start</con:name><con:value/><con:style>QUERY</con:style><con:default/></con:parameter><con:parameter><con:name>page</con:name><con:value/><con:style>QUERY</con:style><con:default/></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain;charset=UTF-8</con:mediaType><con:status>403 422</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="D2C4085559C03053E044002128F16E52" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:username>vmsmu</con:username><con:password>secunet2012</con:password><con:domain>VMSCore</con:domain><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="Method 2" method="PUT"><con:settings><con:setting id="RecordResponseRepresentations">false</con:setting></con:settings><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false"><con:settings/><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates/current" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="count" path="/vms/rest/corporates/current"><con:settings/><con:parameters><con:parameter><con:name>corporateid</con:name><con:value/><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default/><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>search</con:name><con:value/><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default/><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:coun="http://zvss2/vms/rest/subscribers/count">coun:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://139.7.28.80</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates/current/security" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="security" path="/vms/rest/corporates/current/security"><con:settings/><con:parameters/><con:method name="GET" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sec="http://zvss2/vms/rest/corporates/current/security">sec:Response</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>*/*</con:mediaType><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="GET" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8080</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="POST" method="POST"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>*/*</con:mediaType><con:status>500</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/plain</con:mediaType><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sec="http://zvss2/vms/rest/corporates/current/security">sec:Response</con:element></con:representation><con:request name="POST" mediaType="application/x-www-form-urlencoded" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting><con:setting id="com.eviware.soapui.impl.support.AbstractHttpRequest@follow-redirects">false</con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates/id" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings><con:setting id="com.eviware.soapui.impl.rest.actions.service.Wadl2JavaAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Java Args" value=""/>
+  <con:entry key="Output Directory" value=""/>
+  <con:entry key="Package" value=""/>
+  <con:entry key="JAXB Customization File(s)" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Automatic Package Names" value="false"/>
+</xml-fragment>]]></con:setting></con:settings><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="/vms/rest/corporates/id" path="/vms/rest/corporates/{id}"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default/><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="PUT" method="PUT"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value/><con:style>TEMPLATE</con:style><con:default/></con:parameter></con:parameters><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/x-www-form-urlencoded</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain</con:mediaType><con:status>400</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method><con:method name="GET" method="GET"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>404</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType xsi:nil="true"/><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain;charset=UTF-8</con:mediaType><con:status>403</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://zvss2/vms/rest/corporates/11">ns:Response</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>400</con:status><con:params/><con:element>html</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates/id/bans" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="vms/rest/corporates/id/bans" path="/vms/rest/corporates/{id}/bans"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value/><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default/><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Get BANS" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:ns="http://zvss2/vms/rest/corporates/11/">ns:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates/id/subscribers" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="Corporates/id/subscribers?Search&amp;Start&amp;Limit&amp;Sort&amp;Direction" path="/vms/rest/corporates/{id}/subscribers"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>${#Project#CorporateId}</con:value><con:style>TEMPLATE</con:style><con:default>${#Project#CorporateId}</con:default></con:parameter><con:parameter><con:name>search</con:name><con:value>${#Global#Search}</con:value><con:style>TEMPLATE</con:style><con:default>${#Global#Search}</con:default></con:parameter><con:parameter><con:name>start</con:name><con:value>${#Global#Start}</con:value><con:style>TEMPLATE</con:style><con:default>${#Global#Start}</con:default></con:parameter><con:parameter required="false"><con:name>limit</con:name><con:value>${#Global#Limit100}</con:value><con:style>TEMPLATE</con:style><con:default>${#Global#Limit100}</con:default></con:parameter><con:parameter><con:name>sort</con:name><con:value>${#Global#Sort}</con:value><con:style>TEMPLATE</con:style><con:default>${#Global#Sort}</con:default></con:parameter><con:parameter><con:name>direction</con:name><con:value>${#Global#DirectionASC}</con:value><con:style>TEMPLATE</con:style><con:default>${#Global#DirectionASC}</con:default></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="FAULT"><con:mediaType>text/html;charset=utf-8</con:mediaType><con:status>405 400</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="REQUEST"><con:mediaType>application/xml</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:sub="http://zvss2/vms/rest/corporates/11/subscribers">sub:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port} </con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Corporates/id/users/admins" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart=""/><con:endpoints><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpoints><con:resource name="Corporates/id/users/admins" path="/vms/rest/corporates/{id}/users/admins?search&amp;start&amp;limit&amp;sort&amp;direction"><con:settings/><con:parameters><con:parameter><con:name>id</con:name><con:value>id</con:value><con:style>TEMPLATE</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>id</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="Method 1" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType xsi:nil="true"/><con:status>0</con:status><con:params/><con:element>data</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json;charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:adm="http://zvss2/vms/rest/corporates/11/users/admins">adm:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings/><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method><con:method name="Method 2" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>text/html</con:mediaType><con:status>401</con:status><con:params/><con:element>html</con:element></con:representation><con:representation type="FAULT"><con:mediaType>text/plain;charset=UTF-8</con:mediaType><con:status>400 403</con:status><con:params/><con:element>data</con:element></con:representation><con:request name="Request 1" mediaType="application/xml" postQueryString="false"><con:settings/><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:request></con:method></con:resource></con:interface><con:testSuite name="Init" disabled="true"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Init" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script" disabled="true"><con:settings/><con:config><script>import groovy.sql.*
+import com.eviware.soapui.impl.wsdl.WsdlInterface
+import com.eviware.soapui.SoapUI.*
+import com.eviware.soapui.support.GroovyUtils
+import com.eviware.soapui.model.*
+import com.eviware.soapui.support.scripting.*
+import com.eviware.soapui.model.project.*
+
+// MVTC
+//def sql = groovy.sql.Sql.newInstance("jdbc:oracle:thin:@//ts2msvsvdb-scan:1521:DP8A", "vms_core_o", "vms", 'oracle.jdbc.driver.OracleDriver')
+// 3S
+def ProjectName = testRunner.testCase.testSuite.project.name
+def Admin = 3
+def userRole = '${Admin}'
+def sql = groovy.sql.Sql.newInstance("jdbc:oracle:thin:@zvss2:1521:DP9A", "vms_core_o", "vms", 'oracle.jdbc.driver.OracleDriver')
+def testCase = testRunner.testCase
+def testSuite = testRunner.testCase.testSuite
+def testProject = testRunner.testCase.testSuite.project
+def vmsuserId
+def VmsuserId_user = sql.firstRow("select vmsuserid from (select vmsuserid from customer cu, corporate co where cu.corporate_id=co.corporate_id ORDER BY dbms_random.value) where rownum &lt;= 1")
+def CorporateId = sql.firstRow("select corporate_id from customer c where c.vmsuserid=${VmsuserId_user.vmsuserid}")
+def CustomerId = sql.firstRow("select customer_id from customer c where c.vmsuserid=${VmsuserId_user.vmsuserid}")
+def Msisdn = sql.firstRow("select msisdn from subscriber s where s.customer_id=${CustomerId.customer_id}")
+def CorporateName = sql.firstRow("select name from corporate c where c.corporate_id=${CorporateId.Corporate_id}")
+def VmsuserId_admin = sql.firstRow ("select c.vmsuserid from customer c, userrole_customer uc where c.customer_id=uc.customer_id and uc.userrole_id=3 and c.corporate_id=${CorporateId.corporate_id} and ROWNUM&lt;=1")
+log.info VmsuserId_admin
+
+testProject.setPropertyValue("VmsuserId_admin","${VmsuserId_admin.vmsuserid}");
+testProject.setPropertyValue("VmsuserId_user","${VmsuserId_user.vmsuserid}");
+testProject.setPropertyValue("CustomerId","${CustomerId.customer_id}");
+testProject.setPropertyValue("Msisdn","${Msisdn.msisdn}");
+testProject.setPropertyValue("CorporateId","${CorporateId.corporate_id}");
+testProject.setPropertyValue("CorporateName","${CorporateName.name}");
+
+// Log output
+log.info "############### ProjectName=${ProjectName} ##################"
+//log.info VmsuserId
+log.info VmsuserId_user
+log.info CustomerId
+log.info Msisdn
+log.info CorporateId
+log.info CorporateName
+log.info VmsuserId_admin</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates TestSuite" disabled="true"><con:description>TestSuite generated for REST Service [Corporates]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="corporates TestCase" searchProperties="true" id="de5a36ce-014e-44cc-addc-5fb81c5d6d48"><con:description>TestCase generated for REST Resource [corporates] located at [/vms/rest/corporates]</con:description><con:settings/><con:testStep type="restrequest" name="Get" id="eeceb77c-8878-45f1-b54f-a5f0f094ae23"><con:settings/><con:config service="Corporates" resourcePath="/vms/rest/corporates" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:credentials><con:username>${#Global#Username}</con:username><con:password>${#Global#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="limit" value="${#Global#Limit100}"/>
+  <con:entry key="page" value="${#Global#Page}"/>
+  <con:entry key="start" value="${#Global#Start}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Update corporate" id="142e7798-7cd0-4203-8b74-aca37e487a0b"><con:settings/><con:config service="Corporates" resourcePath="/vms/rest/corporates" methodName="Method 2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Update corporate" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request>{
+  "name" : "Wiklund New Corporate",
+  "description" : null,
+  "remark" : null,
+  "contact" : null,
+  "consumerMarket" : false,
+  "bans" : [ {
+    "status" : "Activated",
+    "banID" : 0,
+    "ban" : "666666",
+    "msisdn" : null,
+    "numberOfOtpLicenses" : 6
+  }, {
+    "status" : "Activated",
+    "banID" : 0,
+    "ban" : "666665",
+    "msisdn" : null,
+    "numberOfOtpLicenses" : 5
+  } ],
+  "radiusRealm" : null,
+  "radiusEndpoint" : null,
+  "sharedSecret" : null,
+  "smsOnDemand" : false,
+  "numberOfOtpLicenses" : 0,
+  "currentAdmin" : {
+    "version" : 0,
+    "vmsUserId" : "EB7BBDCE67EA416691A60D9D6FBBE7E7",
+    "firstName" : "Gunnar",
+    "lastName" : "Hilling",
+    "email" : "gunnar@hilling.de",
+    "language" : {
+      "id" : 0,
+      "version" : 0,
+      "name" : "deutsch",
+      "locale" : "de_DE"
+    },
+    "logins" : [ ],
+    "subscribers" : [ ],
+    "subscribersAlreadyExisting" : [ ],
+    "active" : true
+  },
+  "active" : true
+}</con:request><con:credentials><con:username>${#Global#Username}</con:username><con:password>${#Global#Password}</con:password><con:domain>${#Global#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/><con:breakPoints><con:testStepId>eeceb77c-8878-45f1-b54f-a5f0f094ae23</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints><con:breakPoints><con:testStepId>142e7798-7cd0-4203-8b74-aca37e487a0b</con:testStepId><con:status>NONE</con:status><con:properties/></con:breakPoints></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates/current TestSuite"><con:description>TestSuite generated for REST Service [Corporates/current]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="count TestCase" searchProperties="true" id="a51bb50c-abd7-41ad-b52e-28f7789fff3d"><con:description>TestCase generated for REST Resource [count] located at [/vms/rest/subscribers/count]</con:description><con:settings/><con:testStep type="restrequest" name="Fetch current corporate admin info"><con:settings/><con:config service="Corporates/current" resourcePath="/vms/rest/corporates/current" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Fetch current corporate admin info" mediaType="application/xml" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:assertion type="XPath Match" name="Check for existance of [corporateName]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current';
+exists( //ns1:Response/ns1:result/ns1:corporateName)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [firstName]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current';
+exists( //ns1:Response/ns1:result/ns1:firstName)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [lastName]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current';
+exists( //ns1:Response/ns1:result/ns1:lastName)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="corporateid" value="${#Project#CorporateId}"/>
+  <con:entry key="search" value="${#Project#Search}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates/current/security TestSuite"><con:description>TestSuite generated for REST Service [Corporate/current/security]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="security TestCase" searchProperties="true" id="19d9036e-80d4-4ec2-ae70-727a718b0c89"><con:description>TestCase generated for REST Resource [security] located at [/vms/rest/corporates/current/security]</con:description><con:settings/><con:testStep type="restrequest" name="Fetch corporate security properties"><con:settings/><con:config service="Corporates/current/security" resourcePath="/vms/rest/corporates/current/security" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Fetch corporate security properties" mediaType="application/xml" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:assertion type="XPath Match" name="Check for existance of [minPINLen]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current/security';
+exists( //ns1:Response/ns1:result/ns1:e/ns1:minPINLen)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [minPUKLen]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current/security';
+exists( //ns1:Response/ns1:result/ns1:e/ns1:minPUKLen)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [pinretryCnt]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current/security';
+exists( //ns1:Response/ns1:result/ns1:e/ns1:pinretryCnt)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [pukretryCnt]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current/security';
+exists( //ns1:Response/ns1:result/ns1:e/ns1:pukretryCnt)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [otplen]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/current/security';
+exists( //ns1:Response/ns1:result/ns1:e/ns1:otplen)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Set corporate security properties" disabled="true"><con:settings/><con:config service="Corporates/current/security" resourcePath="/vms/rest/corporates/current/security" methodName="POST" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Set corporate security properties" mediaType="application/json" accept="" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request>{
+  "id" : 0,
+  "version" : 0,
+  "minPINLen" : 4,
+  "minPUKLen" : 5,
+  "service" : {
+    "id" : 0,
+    "version" : 0,
+    "type" : "VMS_SECURE_LOGIN",
+    "label" : null,
+    "status" : "ACTIVE",
+    "startDate" : 1360170696600,
+    "logins" : [ ]
+  },
+  "user" : null,
+  "pinType" : "Numeric",
+  "pukType" : "Numeric",
+  "pinretryCnt" : 3,
+  "pukretryCnt" : 3,
+  "otplen" : 8
+}</con:request><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates/id/bans TestSuite"><con:description>TestSuite generated for REST Service [Corporate/id/bans]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="vms/rest/corporates/id/bans TestCase" searchProperties="true" id="83ed82ee-436d-4fad-9cae-68d953ec9c9f"><con:description>TestCase generated for REST Resource [vms/rest/corporates/id/bans] located at [/vms/rest/corporates/{id}/{bans}]</con:description><con:settings/><con:testStep type="restrequest" name="Get BANS"><con:settings/><con:config service="Corporates/id/bans" resourcePath="/vms/rest/corporates/{id}/bans" methodName="Get BANS" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get BANS" mediaType="application/xml" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding/><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:assertion type="XPath Match" name="Check for existance of [ban]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/${#Project#CorporateId}/bans';
+exists( //ns1:Response/ns1:result/ns1:e/ns1:ban)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Project#CorporateId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates/id TestSuite"><con:description>TestSuite generated for REST Service [Corporates/id]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Corporates/id TestSuite" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Update corporate" disabled="true"><con:settings/><con:config service="Corporates/id" resourcePath="/vms/rest/corporates/{id}" methodName="PUT" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Update corporate" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin} " xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request>{
+  "name" : "Wiklund Company",
+  "description" : "New corporate description",
+  "remark" : null,
+  "contact" : null,
+  "consumerMarket" : false,
+  "radiusRealm" : null,
+  "radiusEndpoint" : null,
+  "sharedSecret" : null,
+  "smsOnDemand" : true,
+  "numberOfOtpLicenses" : 0,
+  "active" : true
+}</con:request><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters>
+  <con:entry key="id" value="${#Project#CorporateId}"/>
+  <con:entry key="Id" value="${#Project#CorporateId}"/>
+</con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Fetch corporate info"><con:settings/><con:config service="Corporates/id" resourcePath="/vms/rest/corporates/{id}" methodName="GET" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Fetch corporate info" mediaType="application/xml" postQueryString="false" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:assertion type="XPath Match" name="Match content of [name]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/11';
+//ns1:Response[1]/ns1:result[1]/ns1:name[1]/text()</path><content>${#Project#CorporateName}</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Project#CorporateId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates/id/users/admins TestSuite"><con:description>TestSuite generated for REST Service [Corporates/id/users/admins]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Corporates/id/users/admins TestSuite" searchProperties="true"><con:settings/><con:testStep type="restrequest" name="Get admin users for corporate"><con:settings/><con:config service="Corporates/id/users/admins" resourcePath="/vms/rest/corporates/{id}/users/admins?search&amp;start&amp;limit&amp;sort&amp;direction" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Get admin users for corporate" mediaType="application/xml" accept=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding/><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:assertion type="XPath Match" name="Check for existance of [totalResultSize]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/${#Project#CorporateId}/users/admins';
+exists( //ns1:Response/ns1:totalResultSize)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username>${#Project#Username}</con:username><con:password>${#Project#Password}</con:password><con:domain>${#Project#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Project#CorporateId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:testStep type="restrequest" name="Create admin" disabled="true"><con:settings/><con:config service="Corporates/id/users/admins" resourcePath="/vms/rest/corporates/{id}/users/admins?search&amp;start&amp;limit&amp;sort&amp;direction" methodName="Method 2" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Create admin" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request>{
+  "version" : 0,
+  "vmsUserId" : "${#ProjectVmsuserId_user}",
+  "firstName" : "Stefan",
+  "lastName" : "Mueller",
+  "email" : "stefan.mueller@example.com",
+  "language" : {
+    "id" : 0,
+    "version" : 0,
+    "name" : "deutsch",
+    "locale" : "de_DE"
+  },
+  "login" : {
+    "id" : 0,
+    "version" : 0,
+    "protocol" : "RADIUS",
+    "authMethod" : "SIM",
+    "userName" : "smueller"
+  },
+  "msisdn" : "00441234567890",
+  "corpAdmin" : true,
+  "corpAdminCreate" : true,
+  "corpAdminChange" : true,
+  "corpAdminDelete" : true,
+  "corpSuperAdmin" : false,
+  "active" : true
+}</con:request><con:credentials><con:username>${#Global#Username}</con:username><con:password>${#Global#Password}</con:password><con:domain>${#Global#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="id" value="${#Project#CorporateId}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="Corporates/id/subscribers TestSuite"><con:description>TestSuite generated for REST Service [Corporates/id/subscribers]</con:description><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Corporates/id/subscribers TestSuite" searchProperties="true" id="e1aecfdb-1c18-4832-8ce6-d5e886124cf8"><con:settings/><con:testStep type="restrequest" name="Corporates/id/subscribers?Search&amp;Start&amp;Limit&amp;Sort&amp;Direction"><con:settings/><con:config service="Corporates/id/subscribers" resourcePath="/vms/rest/corporates/{id}/subscribers" methodName="Method 1" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="Corporates/id/subscribers?Search&amp;Start&amp;Limit&amp;Sort&amp;Direction" mediaType="application/xml" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;entry key="HTTP_VMS_USER_ID" value="${#Project#VmsuserId_admin}" xmlns="http://eviware.com/soapui/config"/></con:setting></con:settings><con:encoding/><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint><con:request/><con:assertion type="XPath Match" name="Check for existance of [totalResultSize]"><con:configuration><path>declare namespace ns1='http://zvss2/vms/rest/corporates/${#Project#CorporateId}/subscribers';
+exists( //ns1:Response/ns1:totalResultSize)</path><content>true</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:assertion type="Schema Compliance" name="Schema Compliance"><con:configuration><definition/></con:configuration></con:assertion><con:credentials><con:username>${#Global#Username}</con:username><con:password>${#Global#Password}</con:password><con:domain>${#Global#Domain}</con:domain><con:authType>Preemptive</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:restRequest></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:endpointStrategy xsi:type="con:DefaultEndpointStrategy" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:endpoint mode="COMPLEMENT" username="vmsmu" password="secunet2012">http://localhost:8080</con:endpoint><con:endpoint mode="COMPLEMENT" username="" password="" domain="VMS_Core">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:endpointStrategy><con:requirements><con:requirement><con:id>1</con:id><con:name>name</con:name><con:description>Short description</con:description><con:status>In Scope</con:status><con:links/><con:testCases/></con:requirement></con:requirements><con:properties><con:property><con:name>Host</con:name><con:value>zvss2</con:value></con:property><con:property><con:name>Port</con:name><con:value>8080</con:value></con:property><con:property><con:name>Username</con:name><con:value>vmsmu</con:value></con:property><con:property><con:name>Password</con:name><con:value>secunet2012</con:value></con:property><con:property><con:name>Domain</con:name><con:value>VMSCore</con:value></con:property><con:property><con:name>MinPINLen</con:name><con:value>4</con:value></con:property><con:property><con:name>MinPUKLen</con:name><con:value>8</con:value></con:property><con:property><con:name>PINRetryCnt</con:name><con:value>3</con:value></con:property><con:property><con:name>PUKRetryCnt</con:name><con:value>3</con:value></con:property><con:property><con:name>OTPDefaultLen</con:name><con:value>6</con:value></con:property><con:property><con:name>Bans</con:name><con:value>33445566</con:value></con:property><con:property><con:name>Search</con:name><con:value>Corp </con:value></con:property><con:property><con:name>Limit</con:name><con:value>100</con:value></con:property><con:property><con:name>Direction</con:name><con:value>ASC</con:value></con:property><con:property><con:name>Type</con:name><con:value>csv</con:value></con:property><con:property><con:name>Disposition</con:name><con:value>foobar.csv</con:value></con:property><con:property><con:name>Replace</con:name><con:value>replace</con:value></con:property><con:property><con:name>Activate</con:name><con:value>activate</con:value></con:property><con:property><con:name>VmsuserId_user</con:name><con:value>DA656663CED507AEE04400144F48797A</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>24</con:value></con:property><con:property><con:name>Msisdn</con:name><con:value>004915220440870</con:value></con:property><con:property><con:name>CorporateId</con:name><con:value>11</con:value></con:property><con:property><con:name>CorporateName</con:name><con:value>Wiklund Company</con:value></con:property><con:property><con:name>VmsuserId_admin</con:name><con:value>DA656663CED507AEE04400144F48797A</con:value></con:property></con:properties><con:afterLoadScript/><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:reportTemplates>
+  <con:name>TestSuite Report.copy</con:name>
+  <con:path xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  <con:reportType>TESTSUITE</con:reportType>
+  <con:reportLevel>MAINREPORT</con:reportLevel>
+  <con:nameInReport>TestSuiteReport</con:nameInReport>
+  <con:data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TestSuiteReport" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" isSummaryNewPage="true" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <parameter name="IncludeOverview" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include TestSuite Overview"/>
+      <parameterDescription>Includes TestSuite Overview information in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="IncludeResults" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include Latest Results"/>
+      <property name="depends" value="TestSuiteTestCaseResults"/>
+      <parameterDescription>Includes Latest TestSuite Results in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="FlowLayout" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Flow Layout"/>
+      <parameterDescription>Choose flow layout for report</parameterDescription>
+      <defaultValueExpression>false</defaultValueExpression>
+   </parameter>
+   <parameter name="ErrorDetails" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Detailed Error Information"/>
+      <property name="depends" value="TestSuiteFailedTestSteps"/>
+      <parameterDescription>Adds details for failed test items to report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="IncludeCoverage" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Include TestSuite Coverage"/>
+      <property name="depends" value="TestSuiteCoverage"/>
+      <parameterDescription>Includes Coverage information in report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="HeaderLogo" class="java.lang.String" isForPrompting="false">
+      <defaultValueExpression>"../../logos/header_logo.jpg"</defaultValueExpression>
+   </parameter>
+   <pageHeader>
+      <band height="51">
+         <printWhenExpression>$V{PAGE_NUMBER} == 1 || !$P{FlowLayout}</printWhenExpression>
+         <image scaleImage="Clip" hAlign="Right" onErrorType="Blank">
+            <reportElement x="0" y="0" width="535" height="51"/>
+            <imageExpression class="java.lang.String">$P{HeaderLogo}</imageExpression>
+         </image>
+      </band>
+   </pageHeader>
+   <columnHeader>
+      <band height="75">
+         <printWhenExpression>$V{PAGE_NUMBER} == 1 || !$P{FlowLayout}</printWhenExpression>
+         <textField isStretchWithOverflow="true">
+            <reportElement style="MainHeader" x="0" y="35" width="535" height="40"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"${=testSuite.name}"</textFieldExpression>
+         </textField>
+         <staticText>
+            <reportElement style="MainHeader" x="0" y="0" width="535" height="35"/>
+            <textElement/>
+            <text>TestSuite Results Report for</text>
+         </staticText>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="233">
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="0" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestSuite"</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{ReportMetrics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:MetricsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="31" width="536" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestSuite"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestProperties}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:PropertiesReport"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" x="0" y="62" width="534" height="1">
+               <printWhenExpression>$P{IncludeOverview} &amp;&amp; !$P{FlowLayout} &amp;&amp; $P{TestSuiteTestCases}.hasData()</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="63" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeOverview}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"TestCase"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestSuiteTestCases}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:ModelItemListReport"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" x="0" y="95" width="535" height="1" isPrintInFirstWholeBand="true">
+               <printWhenExpression>!$P{FlowLayout} &amp;&amp; $P{IncludeResults}  &amp;&amp; $P{TestSuiteMetrics}.hasData()</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport isUsingCache="true">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="98" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeResults}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="Type">
+               <subreportParameterExpression>"Result"</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestSuiteMetrics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:MetricsReport"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="129" width="535" height="1" isRemoveLineWhenBlank="true">
+               <printWhenExpression>!$P{FlowLayout} &amp;&amp; $P{IncludeResults} &amp;&amp; $P{TestSuiteTestCaseResults}.hasData()</printWhenExpression>
+            </reportElement>
+         </break>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="129" width="535" height="33" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeResults} &amp;&amp; $P{TestSuiteTestCaseResults}.hasData()</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestSuiteTestCaseResults}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:TestCaseResultsOverviewReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="163" width="535" height="32" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeResults} &amp;&amp; $P{TestSuiteTestCaseResults}.hasData()</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestSuiteTestCaseResults}.cloneDataSource()</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:TestCaseResultsReport"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="200" width="535" height="30" isRemoveLineWhenBlank="true">
+               <printWhenExpression>$P{IncludeCoverage}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="IncludeOverview">
+               <subreportParameterExpression>$P{IncludeOverview}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="TestSuiteCoverage">
+               <subreportParameterExpression>$P{TestSuiteCoverage}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="IncludeResults">
+               <subreportParameterExpression>$P{IncludeResults}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{TestSuiteCoverage}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:TestSuiteCoverageChart"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+   <pageFooter>
+      <band height="20">
+         <printWhenExpression>!$P{FlowLayout}</printWhenExpression>
+         <textField>
+            <reportElement x="0" y="0" width="535" height="20" forecolor="#999999"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"created with soapUI Pro on " + new Date()</textFieldExpression>
+         </textField>
+      </band>
+   </pageFooter>
+   <lastPageFooter>
+      <band height="29">
+         <textField>
+            <reportElement x="0" y="0" width="535" height="20" forecolor="#999999"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"created with soapUI Pro on " + new Date()</textFieldExpression>
+         </textField>
+      </band>
+   </lastPageFooter>
+</jasperReport>]]></con:data>
+  <con:description>NO DESC</con:description>
+  <con:scope>PROJECT</con:scope>
+  <con:dataSource>UNKNOWN</con:dataSource>
+</con:reportTemplates><con:reportTemplates>
+  <con:name>LoadTest Report.copy</con:name>
+  <con:path xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+  <con:reportType>LOADTEST</con:reportType>
+  <con:reportLevel>MAINREPORT</con:reportLevel>
+  <con:nameInReport>LoadTestReport</con:nameInReport>
+  <con:data xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><![CDATA[<jasperReport xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="LoadTestReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="30" rightMargin="30" topMargin="30" bottomMargin="30" xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <property name="ireport.encoding" value="UTF-8"/>
+   <template>"../../styles.jrtx"</template>
+   <subDataset name="dataset1">
+      <field name="COLUMN_1" class="java.lang.String"/>
+      <field name="COLUMN_4" class="java.lang.String"/>
+   </subDataset>
+   <parameter name="FlowLayout" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Flow Layout"/>
+      <parameterDescription>Choose flow layout for report</parameterDescription>
+      <defaultValueExpression>false</defaultValueExpression>
+   </parameter>
+   <parameter name="ErrorDetails" class="java.lang.Boolean">
+      <property name="interactive" value="true"/>
+      <property name="label" value="Detailed Error Information"/>
+      <property name="depends" value="FailedTestSteps"/>
+      <parameterDescription>Adds details for failed test items to report</parameterDescription>
+      <defaultValueExpression>true</defaultValueExpression>
+   </parameter>
+   <parameter name="HeaderLogo" class="java.lang.String" isForPrompting="false">
+      <defaultValueExpression>"../../logos/header_logo.jpg"</defaultValueExpression>
+   </parameter>
+   <pageHeader>
+      <band height="51">
+         <printWhenExpression>$V{PAGE_NUMBER} == 1 || !$P{FlowLayout}</printWhenExpression>
+         <image scaleImage="Clip" hAlign="Right" onErrorType="Blank">
+            <reportElement x="0" y="0" width="535" height="51"/>
+            <imageExpression class="java.lang.String">$P{HeaderLogo}</imageExpression>
+         </image>
+      </band>
+   </pageHeader>
+   <columnHeader>
+      <band height="77">
+         <printWhenExpression>$V{PAGE_NUMBER} == 1 || !$P{FlowLayout}</printWhenExpression>
+         <staticText>
+            <reportElement style="MainHeader" x="0" y="0" width="535" height="35"/>
+            <textElement/>
+            <text>LoadTest Results for</text>
+         </staticText>
+         <textField>
+            <reportElement style="MainHeader" x="0" y="36" width="535" height="40"/>
+            <textElement/>
+            <textFieldExpression class="java.lang.String">"${=loadTest.name}"</textFieldExpression>
+         </textField>
+      </band>
+   </columnHeader>
+   <detail>
+      <band height="549">
+         <subreport isUsingCache="false" runToBottom="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="0" width="535" height="56"/>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{LoadTestStatistics}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:LoadTestStatistics"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false" runToBottom="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="379" width="535" height="45"/>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{LoadTestLog}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:LoadTestLog"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false" runToBottom="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="424" width="535" height="41"/>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{LoadTestTestStepHistory}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:LoadTestTestStepHistory"</subreportExpression>
+         </subreport>
+         <subreport isUsingCache="false" runToBottom="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="465" width="535" height="41"/>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{LoadTestStatisticsHistory}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:LoadTestStatisticsHistory"</subreportExpression>
+         </subreport>
+         <break>
+            <reportElement positionType="Float" x="0" y="378" width="100" height="1">
+               <printWhenExpression>!$P{FlowLayout}</printWhenExpression>
+            </reportElement>
+         </break>
+         <pieChart>
+            <chart>
+               <reportElement positionType="Float" x="0" y="82" width="535" height="297"/>
+               <chartTitle>
+                  <titleExpression>"Average Step Time Distribution"</titleExpression>
+               </chartTitle>
+               <chartSubtitle/>
+               <chartLegend/>
+            </chart>
+            <pieDataset>
+               <dataset>
+                  <incrementWhenExpression>!$F{COLUMN_1}.equals( "TestCase:" ) &amp;&amp; Float.parseFloat( $F{COLUMN_4}) > 0</incrementWhenExpression>
+                  <datasetRun subDataset="dataset1">
+                     <dataSourceExpression>$P{LoadTestStatistics}.cloneDataSource()</dataSourceExpression>
+                  </datasetRun>
+               </dataset>
+               <keyExpression>$F{COLUMN_1} + " - " + $F{COLUMN_4} + "ms"</keyExpression>
+               <valueExpression>Float.parseFloat($F{COLUMN_4})</valueExpression>
+               <labelExpression>$F{COLUMN_1}</labelExpression>
+            </pieDataset>
+            <piePlot>
+               <plot/>
+               <itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+            </piePlot>
+         </pieChart>
+         <subreport isUsingCache="false">
+            <reportElement positionType="Float" isPrintRepeatedValues="false" x="1" y="508" width="535" height="40">
+               <printWhenExpression>$P{ErrorDetails}</printWhenExpression>
+            </reportElement>
+            <subreportParameter name="FlowLayout">
+               <subreportParameterExpression>$P{FlowLayout}</subreportParameterExpression>
+            </subreportParameter>
+            <subreportParameter name="ErrorDetails">
+               <subreportParameterExpression>$P{ErrorDetails}</subreportParameterExpression>
+            </subreportParameter>
+            <dataSourceExpression>$P{FailedTestSteps}</dataSourceExpression>
+            <subreportExpression class="java.lang.String">"subreport:FailedTestSteps"</subreportExpression>
+         </subreport>
+      </band>
+   </detail>
+   <pageFooter>
+      <band height="24">
+         <printWhenExpression>!$P{FlowLayout}</printWhenExpression>
+         <textField>
+            <reportElement x="1" y="0" width="535" height="20" forecolor="#999999"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"created with soapUI Pro on " + new Date()</textFieldExpression>
+         </textField>
+      </band>
+   </pageFooter>
+   <lastPageFooter>
+      <band height="24">
+         <textField>
+            <reportElement x="1" y="0" width="535" height="20" forecolor="#999999"/>
+            <textElement textAlignment="Center" verticalAlignment="Middle"/>
+            <textFieldExpression class="java.lang.String">"created with soapUI Pro on " + new Date()</textFieldExpression>
+         </textField>
+      </band>
+   </lastPageFooter>
+</jasperReport>]]></con:data>
+  <con:description>NO DESC</con:description>
+  <con:scope>PROJECT</con:scope>
+  <con:dataSource>UNKNOWN</con:dataSource>
+</con:reportTemplates><con:xmlTemplates/><con:parameters/></con:reporting><con:beforeRunScript/><con:afterRunScript>import groovy.sql.*
+import com.eviware.soapui.impl.wsdl.WsdlInterface
+import com.eviware.soapui.SoapUI.*
+import com.eviware.soapui.support.GroovyUtils
+import com.eviware.soapui.model.*
+import com.eviware.soapui.support.scripting.*
+import com.eviware.soapui.model.project.*
+
+for ( testCaseResult in runner.results )
+{
+testCaseName = testCaseResult.getTestCase().name
+log.info testCaseName
+if ( testCaseResult.getStatus().toString() == 'FAILED' )
+{
+log.info "$testCaseName has failed"
+for ( testStepResult in testCaseResult.getResults() )
+{
+testStepResult.messages.each() { msg -> log.info msg }
+}
+}
+}</con:afterRunScript><con:sensitiveInformation/><con:environment name="Corporates"><con:service type="REST" name="Corporates"><con:endpoint domain="VMS_Core" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:service type="REST" name="Corporates/current"><con:endpoint domain="VMS_Core" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:service type="REST" name="Corporates/current/security"><con:endpoint domain="VMS_Core" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:service type="REST" name="Corporates/id"><con:endpoint domain="VMS_Core" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:service type="REST" name="Corporate/id/bans"><con:endpoint domain="VMS_Core" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:service type="REST" name="Corporate/id/subscribers"><con:endpoint username="" password="" domain="" proxyHost="" proxyPort="" proxyUsername="" proxyPassword="">http://${#Project#Host}:${#Project#Port} </con:endpoint></con:service><con:service type="REST" name="Corporate/id/users/admins"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port} </con:endpoint></con:service><con:service type="REST" name="/vms/rest//corporates/subscribers/msisdn/pin_reset"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${</con:endpoint></con:service><con:service type="REST" name="Nytt"><con:endpoint>http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:service type="REST" name="Corporates/id/users/admins"><con:endpoint domain="" incomingWss="" outgoingWss="" password="" username="" wssTimeToLive="" wssType="">http://${#Project#Host}:${#Project#Port}</con:endpoint></con:service><con:property><con:name>Host</con:name><con:value>zvss2</con:value></con:property><con:property><con:name>Port</con:name><con:value>8080</con:value></con:property><con:property><con:name>Username</con:name><con:value>vmsmu</con:value></con:property><con:property><con:name>Password</con:name><con:value>secunet2012</con:value></con:property><con:property><con:name>Domain</con:name><con:value>VMSCore</con:value></con:property><con:property><con:name>MinPINLen</con:name><con:value>4</con:value></con:property><con:property><con:name>MinPUKLen</con:name><con:value>8</con:value></con:property><con:property><con:name>PINRetryCnt</con:name><con:value>3</con:value></con:property><con:property><con:name>PUKRetryCnt</con:name><con:value>3</con:value></con:property><con:property><con:name>OTPDefaultLen</con:name><con:value>6</con:value></con:property><con:property><con:name>Bans</con:name><con:value>12345678</con:value></con:property><con:property><con:name>Search</con:name><con:value/></con:property><con:property><con:name>Limit</con:name><con:value>100</con:value></con:property><con:property><con:name>Direction</con:name><con:value>ASC</con:value></con:property><con:property><con:name>Type</con:name><con:value>csv</con:value></con:property><con:property><con:name>Disposition</con:name><con:value>foobar.csv</con:value></con:property><con:property><con:name>Replace</con:name><con:value>replace</con:value></con:property><con:property><con:name>Activate</con:name><con:value>activate</con:value></con:property><con:property><con:name>VmsuserId_user</con:name><con:value>E3E44EC4E9252A8AE04400144F48797A</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>104</con:value></con:property><con:property><con:name>Msisdn</con:name><con:value>004915220440874</con:value></con:property><con:property><con:name>CorporateId</con:name><con:value>11</con:value></con:property><con:property><con:name>CorporateName</con:name><con:value>Wiklund Company</con:value></con:property><con:property><con:name>VmsuserId_admin</con:name><con:value>DA656663CED507AEE04400144F48797A</con:value></con:property><con:property><con:name>VmsuserId_admin</con:name><con:value/></con:property><con:databaseConnectionContainer/></con:environment></con:soapui-project>
