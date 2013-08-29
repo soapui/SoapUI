@@ -6,14 +6,16 @@
   <con:project name="Licentio">Licentio-soapui-project.xml</con:project>
   <con:project name="OTA">OTA-soapui-project.xml</con:project>
   <con:project name="SDK Notification">SDK-Notification-soapui-project.xml</con:project>
-  <con:project name="Subscribers">Subscriber-soapui-project.xml</con:project>
+  <con:project name="Subscribers">Subscribers-soapui-project.xml</con:project>
   <con:project name="OTP">OTP-soapui-project.xml</con:project>
   <con:project name="Reports">Reports-soapui-project.xml</con:project>
-  <con:project name="Users">Users-soapui-project.xml</con:project>
   <con:project name="Version">Version-soapui-project.xml</con:project>
   <con:project name="OTI">../../../Documents/SoapUI/Otiservice-soapui-project.xml</con:project>
   <con:project name="OTA Notification">../../../Documents/SoapUI/OTA-notification-soapui-project.xml</con:project>
   <con:project name="Vmsaim">../../../Documents/SoapUI/Vmsaim-soapui-project.xml</con:project>
   <con:project name="UpsSession">../../../Documents/SoapUI/UpsSession-soapui-project.xml</con:project>
   <con:project name="Init">Init-soapui-project.xml</con:project>
+  <con:project name="Execute">Execute-soapui-project.xml</con:project>
+  <con:project name="Partner">Partner-soapui-project.xml</con:project>
+  <con:project name="Users">Users-soapui-project.xml</con:project>
 </con:soapui-workspace>

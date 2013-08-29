@@ -1,79 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project activeEnvironment="Default" name="Init" resourceRoot="" soapui-version="4.5.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite name="Init"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Init" searchProperties="true" id="e9f78fa5-dbf6-4352-8555-5a4d39a2d209"><con:settings/><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.io.*;
-import groovy.swing.SwingBuilder;
-import javax.swing.*;
-import com.eviware.soapui.support.GroovyUtils.*
+<con:soapui-project activeEnvironment="Default" name="Init" resourceRoot="" soapui-version="4.5.2" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite name="Init" disabled="true"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="Init" searchProperties="true" id="e9f78fa5-dbf6-4352-8555-5a4d39a2d209"><con:settings/><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>// Import necesarry libs
+import groovy.sql.*
+import com.eviware.soapui.impl.wsdl.WsdlInterface
+import com.eviware.soapui.SoapUI.*
+import com.eviware.soapui.support.GroovyUtils
+import com.eviware.soapui.model.*
+import com.eviware.soapui.support.scripting.*
+import com.eviware.soapui.model.project.*
+import java.util.Random
+import com.eviware.soapui.model.propertyExpansion.propertyExpansionUtils.*
+import com.eviware.soapui.SoapUI.globalProperties.* 
 
-def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
-def projectPath = groovyUtils.projectPath
-
-//determine projectdir by project.getPath, because GroovyUtils.projectpath does not work at startup
-path = groovyUtils.projectPath
-s= System.getProperty("file.separator");
-settingsPath = path+s;
-log.info("path = " + path);
-//settingsfiles are stored in projecpath\settings
-//settingsPath += "settings" + s;
-
-//only works in versions > 4.0 because of SoapUI.isCommandline()
-if(com.eviware.soapui.SoapUI.SOAPUI_VERSION.toString().substring(0,1).toInteger() >= 4){
-   if(com.eviware.soapui.SoapUI.isCommandLine()){
-      setProperties("environment_default", settingsPath);
-   }else{
-      openDialog();
+// Create a class to generate unique random numbers of a certain length
+// to be used when creating subscribers. The methods are called several 
+// time during the initiation process, therefore a class and not several 
+// individual commands... 
+//
+class randomNumber
+{
+   def long msisdn
+   def long simSerial
+   def long imsi
+   
+   public createMsisdn() 
+   { 
+   	  msisdn = Math.random() * 5000000000;
+	  return msisdn
    }
+   public createImsi() 
+   { 
+   	  imsi = Math.random() * 500000000000000;
+	  return imsi
+   }
+   public createSimserial() 
+   { 
+   	  simSerial = Math.random() * 50000000000000000000;
+	  return simSerial
+   }
+ 
 }
+// Create a method to fetch global property value by name
+//
+def getGlobalPropertyValue(key) { 
+        return com.eviware.soapui.SoapUI.globalProperties.getPropertyValue(key)         
+} 
 
-//Method to set project properties
-void setProperties(name, location){
-   try{
-      //read properties file
-      FileInputStream fstream = new FileInputStream(location + name + ".properties");
-      DataInputStream ins = new DataInputStream(fstream);
-      BufferedReader br = new BufferedReader(new InputStreamReader(ins));
-      String strLine;
+// Initiate the database JDBC connection. This is vital as all forthcoming 
+// initiation is based on fetching certain information from the database.
+// The global property constants used for the database connection and other 
+// things, are defined in an "environment" file which is read 
+// when starting SoapUI. This file only consists of properties that are not 
+// to be changed during execution (i.e constants). If any changes are made to this file, 
+// SoapUI must be restarted or a manual reload of the file must be performed 
+// in the "Preferences" section. Another way it to reload the "Init" project. 
+//
+log.info "Using the following Database properties...:"
+def DBHost= getGlobalPropertyValue("Host")
+def DBPort= getGlobalPropertyValue("DBPort")
+def DBName= getGlobalPropertyValue("DBName")
+def DBUsername= getGlobalPropertyValue("DBUsername")
+def DBPassword= getGlobalPropertyValue("DBPassword")
+def DBDriver= "'oracle.jdbc.driver.OracleDriver'"
 
-      //set new properties
-      while ((strLine = br.readLine()) != null)   {
-         attribute = strLine.split("=");
-         project.setPropertyValue(attribute[0],attribute[1]);
-         project.getPropertyValue(attribute[0]);
-      log.info strLine
-      }
-      ins.close();
-   }catch(Exception e){
-   	log.info (e.getMessage());
-   	log.info "Something went wrong, but properties seems to have been loaded anyway.Errormessage was: "+e 
-      //log.info("No project-properties were set, could not find file for name: " + name + " and location: " + location);
-   }
-}
+log.info "DBHost: "+getGlobalPropertyValue("Host")
+log.info "DBPort: "+getGlobalPropertyValue("DBPort")
+log.info "DBName: "+getGlobalPropertyValue("DBName")
+log.info "DBUsername: "+getGlobalPropertyValue("DBUsername")
+log.info "DBPassword: "+getGlobalPropertyValue("DBPassword")
+//log.info "groovy.sql.Sql.newInstance(jdbc:oracle:thin:@getGlobalPropertyValue("Host"):getGlobalPropertyValue("DBPort"):getGlobalPropertyValue("DBName"), getGlobalPropertyValue("DBUsername"), getGlobalPropertyValue("DBPassword"), 'oracle.jdbc.driver.OracleDriver')"
 
-//Opens the swing dialog
-void openDialog(){
-	log.info "openDialog"
-   def swingBuilder = new SwingBuilder();
-   File[] listOfFiles = new File(settingsPath).listFiles();
-   int count, count2;
-   def options = [];
-   def browser = [];
-   for (int i = 0; i &lt; listOfFiles.length; i++) {
-      if(listOfFiles[i].getName().contains("environment_")){
-         name = listOfFiles[i].getName().replace("environment_","").replace(".properties","");
-         options[count]=name;
-         log.info name
-         count++
-      }
-//      if(listOfFiles[i].getName().contains("browser_")){
-//         name = listOfFiles[i].getName().replace("browser_","").replace(".properties","");
-//         browser[count2]=name;
-//         count2++;
-//      }
-   }
-   def pane = swingBuilder.optionPane(message:'Environment', selectionValues:options, optionType:JOptionPane.CLOSED_OPTION);
-   def dialog = pane.createDialog(null, 'Select an environment (' + project.name + ")");
-   dialog.show();
-   setProperties("environment_" + pane.getInputValue(), settingsPath);
-}</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:setupScript>import groovy.io.*;
+r = new randomNumber()
+log.info r.createMsisdn()
+log.info r.createImsi()
+log.info r.createSimserial()
+
+// MVTC
+// 3S
+def ProjectName = testRunner.testCase.testSuite.project.name
+def admin = 3
+def userRole = "$admin"
+def sql = groovy.sql.Sql.newInstance("jdbc:oracle:thin:@$DBHost:$DBPort:$DBName","$DBUsername","$DBPassword",'oracle.jdbc.driver.OracleDriver')
+def testCase = testRunner.testCase
+def testSuite = testRunner.testCase.testSuite
+def testProject = testRunner.testCase.testSuite.project
+def subscriber = ""
+def customer = ""
+def corporate = ""
+
+def VmsuserId_user = sql.firstRow("select vmsuserid from (select vmsuserid from customer cu, corporate co where cu.corporate_id=co.corporate_id ORDER BY dbms_random.value) where rownum &lt;= 1")
+def CorporateId = sql.firstRow("select corporate_id from customer c where c.vmsuserid=${VmsuserId_user.vmsuserid}")
+def CustomerId = sql.firstRow("select customer_id from customer c where c.vmsuserid=${VmsuserId_user.vmsuserid}")
+def Msisdn = sql.firstRow("select msisdn from subscriber s where s.customer_id=${CustomerId.customer_id}")
+def Imsi = sql.firstRow("select imsi from subscriber s where s.customer_id=${CustomerId.customer_id}")
+def SimSerial = sql.firstRow("select simnumber from subscriber s where s.customer_id=${CustomerId.customer_id}")
+def CorporateName = sql.firstRow("select name from corporate c where c.corporate_id=${CorporateId.Corporate_id}")
+def VmsuserId_admin = sql.firstRow ("select c.vmsuserid from customer c, userrole_customer uc where c.customer_id=uc.customer_id and uc.userrole_id=3 and c.corporate_id=${CorporateId.corporate_id} and ROWNUM&lt;=1")
+def InvitationId = sql.firstRow("select invitationid from customer c where c.vmsuserid=${VmsuserId_user.vmsuserid}")
+def LanguageId = sql.firstRow("select language_id from customer c where c.vmsuserid=${VmsuserId_user.vmsuserid}")
+def MsisdnNotProv = ""
+def MsisdnSamlSim = ""
+def MsisdnSamlOtp = ""
+def MsisdnAdminSim = ""
+def MsisdnAdminOtp = ""
+def MsisdnRadiusSim = ""
+def MsisdnRadiusOtp = "" 
+def VmsUserIdAdmin = "" 
+def VmsuserIdSimUser = ""
+def VmsuserIdOtpUser = "" 
+def VmsuserIdCreateUser1 = ""
+def VmsuserIdCreateUser2 = ""
+def VmsuserIdCreateUser3 = "" 
+def VmsuserIdCreateUser4 = "" 
+def VmsuserIdCreateUser5 = "" 
+def VmsuserIdCreateUser6 = ""
+def VmsuserIdDeleteUser1 = ""
+def VmsuserIdUpdateUser = ""
+
+testProject.setPropertyValue("VmsuserId_admin","${VmsuserId_admin.vmsuserid}");
+testProject.setPropertyValue("VmsuserId_user","${VmsuserId_user.vmsuserid}");
+testProject.setPropertyValue("CustomerId","${CustomerId.customer_id}");
+testProject.setPropertyValue("Msisdn","${Msisdn.msisdn}");
+testProject.setPropertyValue("CorporateId","${CorporateId.corporate_id}");
+testProject.setPropertyValue("CorporateName","${CorporateName.name}");
+testProject.setPropertyValue("Imsi","${Imsi.imsi}");
+testProject.setPropertyValue("SimSerial","${SimSerial.simnumber}");
+
+// Log output
+log.info "############### ProjectName=${ProjectName} ##################"
+log.info VmsuserId_admin
+log.info VmsuserId_user
+log.info CustomerId
+log.info Msisdn
+log.info CorporateId
+log.info CorporateName
+log.info Imsi
+log.info SimSerial
+</script></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:setupScript>import groovy.io.*;
 import groovy.swing.SwingBuilder;
 import javax.swing.*;
 import com.eviware.soapui.support.GroovyUtils.*
@@ -149,4 +211,78 @@ void openDialog(){
    def dialog = pane.createDialog(null, 'Select an environment (' + project.name + ")");
    dialog.show();
    setProperties("environment_" + pane.getInputValue(), settingsPath);
-}</con:setupScript><con:reportParameters/></con:testSuite><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
+}</con:setupScript><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>VmsuserId_admin</con:name><con:value>DA2627E76B680E75E04400144F48797A</con:value></con:property><con:property><con:name>VmsuserId_user</con:name><con:value>DA656663CECD07AEE04400144F48797A</con:value></con:property><con:property><con:name>CustomerId</con:name><con:value>23</con:value></con:property><con:property><con:name>Msisdn</con:name><con:value>008154711</con:value></con:property><con:property><con:name>CorporateId</con:name><con:value>1</con:value></con:property><con:property><con:name>CorporateName</con:name><con:value>secunet Security Networks AG</con:value></con:property><con:property><con:name>Imsi</con:name><con:value>123456789012341</con:value></con:property><con:property><con:name>SimSerial</con:name><con:value>12345678901234567890</con:value></con:property></con:properties><con:afterLoadScript>import groovy.io.*;
+import groovy.swing.SwingBuilder;
+import javax.swing.*;
+import com.eviware.soapui.support.GroovyUtils.*
+
+def groovyUtils = new com.eviware.soapui.support.GroovyUtils(context)
+def projectPath = groovyUtils.projectPath
+
+//determine projectdir by project.getPath, because GroovyUtils.projectpath does not work at startup
+path = groovyUtils.projectPath
+s= System.getProperty("file.separator");
+settingsPath = path+s;
+log.info("path = " + path);
+//settingsfiles are stored in projecpath\settings
+//settingsPath += "settings" + s;
+
+//only works in versions > 4.0 because of SoapUI.isCommandline()
+if(com.eviware.soapui.SoapUI.SOAPUI_VERSION.toString().substring(0,1).toInteger() >= 4){
+   if(com.eviware.soapui.SoapUI.isCommandLine()){
+      setProperties("environment_default", settingsPath);
+   }else{
+      openDialog();
+   }
+}
+
+//Method to set project properties
+void setProperties(name, location){
+   try{
+      //read properties file
+      FileInputStream fstream = new FileInputStream(location + name + ".properties");
+      DataInputStream ins = new DataInputStream(fstream);
+      BufferedReader br = new BufferedReader(new InputStreamReader(ins));
+      String strLine;
+
+      //set new properties
+      while ((strLine = br.readLine()) != null)   {
+         attribute = strLine.split("=");
+         project.setPropertyValue(attribute[0],attribute[1]);
+         project.getPropertyValue(attribute[0]);
+      log.info strLine
+      }
+      ins.close();
+   }catch(Exception e){
+   	log.info (e.getMessage());
+   	log.info "Something went wrong, but properties seems to have been loaded anyway.Errormessage was: "+e 
+      //log.info("No project-properties were set, could not find file for name: " + name + " and location: " + location);
+   }
+}
+
+//Opens the swing dialog
+void openDialog(){
+	log.info "openDialog"
+   def swingBuilder = new SwingBuilder();
+   File[] listOfFiles = new File(settingsPath).listFiles();
+   int count, count2;
+   def options = [];
+   def browser = [];
+   for (int i = 0; i &lt; listOfFiles.length; i++) {
+      if(listOfFiles[i].getName().contains("environment_")){
+         name = listOfFiles[i].getName().replace("environment_","").replace(".properties","");
+         options[count]=name;
+         log.info name
+         count++
+      }
+//      if(listOfFiles[i].getName().contains("browser_")){
+//         name = listOfFiles[i].getName().replace("browser_","").replace(".properties","");
+//         browser[count2]=name;
+//         count2++;
+//      }
+   }
+   def pane = swingBuilder.optionPane(message:'Environment', selectionValues:options, optionType:JOptionPane.CLOSED_OPTION);
+   def dialog = pane.createDialog(null, 'Select an environment (' + project.name + ")");
+   dialog.show();
+   setProperties("environment_" + pane.getInputValue(), settingsPath);
+}</con:afterLoadScript><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:reportTemplates/><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

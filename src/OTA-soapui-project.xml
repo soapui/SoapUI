@@ -494,4 +494,4 @@ if (AuthHeaderMissing == true){
 log.info("OnRequest - no Authentication header found"); 
 String myEnxceptio = globalProperties['myException'].value;;
 }
-}</con:onRequestScript></con:mockService><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
+}</con:onRequestScript></con:mockService><con:requirements/><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>

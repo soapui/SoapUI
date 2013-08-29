@@ -1,0 +1,133 @@
+Corporates
+----------
+Add SAML service to OTP user
+Add SAML service to Simplified user
+Add RADIUS service to OTP user
+Add RADIUS service to Simplified user
+Get BANS for current corporate
+Get corporate security properties
+Get corporate admin users
+Get current corporate admin info
+-Create subscriber
+-Create OTP admin
+-Create Simplified admin
+-Delete user
+-Delete subscriber
+-Create corporate
+-Get corporate info
+-Set/update corporate info
+-Set corporate security properties
+-List all corporates in system
+-List all corporates - filter by name
+-List all corporates - filter by Ban
+-Resend admin invitation mail
+
+Licentio - SDK Service
+----------------------
+-Authenticate
+Changelanguage
+ResetPIN
+RetrieveOTP
+SendOTP
+SendSM(S)
+ValidateOTP
+Verify transactionid
+
+Licentio - SDK Notification
+---------------------------
+- Incomingmessage
+- Notification
+
+OTA
+---
+- Download
+- Senddata
+- Statuscheck
+- Unlock
+- Lock
+- Updatefile
+
+OTA Notification
+---------------- 
+- Incomingmessage
+- Statusnotification
+
+OTI
+---
+- Connect (Phase II)
+
+OTP
+---
+- OTP from URL
+- OTP from URL/from SMS
+
+Report
+------
+Report
+
+Subscribers
+-----------
+Pin Reset
+Count subscribers
+Get unassigned subscribers
+Count unassagned subscribers
+Get MSISDN info
+Get service status (in OTA)
+Activate service
+Lock
+Unlock
+Resend mail invitation
+Get unlocated subscribers
+- Update subscriber
+- Update logins for subscriber
+- Assign user
+- Assign OTP licenses
+
+UPSSession
+----------
+- Create subsscriber
+- Delete Subscriber
+
+User
+----
+Add SAML service to OTP user
+Add SAML service to Simplified user
+Add RADIUS service to OTP user
+Add RADIUS service to Simplified user
+Get user in corporate
+Create OTP user in corporate
+Create simplified user in corporate
+Count users in corporate
+Get users without service
+Count users without service
+Get non admin users
+Get admin users
+Remove subscriber from user
+Get users language
+Get subscribers service history
+Get subscribers history
+Get users history
+Get current logged in admin info
+- Get user info
+- Update user
+- Delete user
+- Assign subscriber
+- Resend mail
+- Resend adminmail
+- Lock all services for a given user
+- Unlock all services for a given user
+- Send admin invitation mail
+
+Version
+-------
+Get VMSCore version
+
+VmsAIM
+- Get userid from invitationid
+- Send invitation as used
+
+45 ok
+45 nok
+
+
+
