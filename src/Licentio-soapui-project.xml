@@ -416,7 +416,7 @@
          <otp>?</otp>
       </sdk:verify>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify"/></con:call></con:operation></con:interface><con:testSuite name="SdkServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="authenticate TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="authenticate"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>authenticate</con:operation><con:request name="authenticate"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify"/></con:call></con:operation></con:interface><con:testSuite name="SdkServiceSoapBinding OLD"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="authenticate TestCase" searchProperties="true"><con:settings/><con:testStep type="request" name="authenticate"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>authenticate</con:operation><con:request name="authenticate"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
    <soapenv:Header/>
    <soapenv:Body>
       <sdk:authenticate>
@@ -556,4 +556,75 @@ exists( //ns2:sendOtpResponse/result/otp)</path><content>true</content><allowWil
       </sdk:verify>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:assertion type="XPath Match" name="Match content of [result]"><con:configuration><path>declare namespace ns2='http://sdk.ws.licentio.smarttrust.com/';
-//ns2:verifyResponse[1]/result[1]/text()</path><content>FAILED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>Host</con:name><con:value>zvss2</con:value></con:property><con:property><con:name>Port</con:name><con:value>7105</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
+//ns2:verifyResponse[1]/result[1]/text()</path><content>FAILED</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify" mustUnderstand="NONE" version="200508"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="SdkServiceSoapBinding TestSuite" searchProperties="true"><con:settings/><con:testStep type="request" name="authenticate"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>authenticate</con:operation><con:request name="authenticate"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:authenticate>
+         <request>
+            <subject>?</subject>
+            <subjectType>?</subjectType>
+            <protocol>?</protocol>
+         </request>
+      </sdk:authenticate>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/authenticate"/></con:request></con:config></con:testStep><con:testStep type="request" name="changeLanguage"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>changeLanguage</con:operation><con:request name="changeLanguage"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:changeLanguage>
+         <msisdn>?</msisdn>
+         <langFile>?</langFile>
+      </sdk:changeLanguage>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/changeLanguage"/></con:request></con:config></con:testStep><con:testStep type="request" name="resetPIN"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>resetPIN</con:operation><con:request name="resetPIN"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:resetPIN>
+         <msisdn>?</msisdn>
+      </sdk:resetPIN>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/resetPIN"/></con:request></con:config></con:testStep><con:testStep type="request" name="retrieveOtp"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>retrieveOtp</con:operation><con:request name="retrieveOtp"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:retrieveOtp>
+         <msisdn>?</msisdn>
+         <length>?</length>
+         <lifetime>?</lifetime>
+         <otpseed>cid:791122646514</otpseed>
+      </sdk:retrieveOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/retrieveOtp"/></con:request></con:config></con:testStep><con:testStep type="request" name="sendOtp"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>sendOtp</con:operation><con:request name="sendOtp"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendOtp>
+         <msisdn>?</msisdn>
+         <length>?</length>
+         <lifetime>?</lifetime>
+      </sdk:sendOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendOtp"/></con:request></con:config></con:testStep><con:testStep type="request" name="sendSM"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>sendSM</con:operation><con:request name="sendSM"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:sendSM>
+         <msisdn>?</msisdn>
+         <text>?</text>
+         <validityPeriod>?</validityPeriod>
+      </sdk:sendSM>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/sendSM"/></con:request></con:config></con:testStep><con:testStep type="request" name="validateOtp"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>validateOtp</con:operation><con:request name="validateOtp"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:validateOtp>
+         <msisdn>?</msisdn>
+         <otp>?</otp>
+      </sdk:validateOtp>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/validateOtp"/></con:request></con:config></con:testStep><con:testStep type="request" name="verify"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>SdkServiceSoapBinding</con:interface><con:operation>verify</con:operation><con:request name="verify"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Global#Servicehost}:${#Global#Serviceport}/licentio/ws/sdk?WSDL</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sdk="http://sdk.ws.licentio.smarttrust.com/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <sdk:verify>
+         <transactionId>?</transactionId>
+         <!--Optional:-->
+         <otp>?</otp>
+      </sdk:verify>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:wsaConfig action="http://sdk.ws.licentio.smarttrust.com/Sdk/verify"/></con:request></con:config></con:testStep><con:properties/><con:reportParameters/></con:testCase><con:properties/><con:reportParameters/></con:testSuite><con:testSuite name="SdkServiceSoapBinding TestSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:properties/><con:reportParameters/></con:testSuite><con:requirements/><con:properties><con:property><con:name>Host</con:name><con:value>zvss2</con:value></con:property><con:property><con:name>Port</con:name><con:value>7105</con:value></con:property></con:properties><con:wssContainer/><con:databaseConnectionContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:sensitiveInformation/></con:soapui-project>
