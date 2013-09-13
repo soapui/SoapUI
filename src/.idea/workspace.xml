@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="845ecfc9-2e6f-4849-8ad0-3cba0b34b89b" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\wiklundn\IdeaProjects\SoapUI\src\init\init.groovy" afterPath="" />
+    <list default="true" id="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Corporates-soapui-project.xml" afterPath="$PROJECT_DIR$/Corporates-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Execute-soapui-project.xml" afterPath="$PROJECT_DIR$/Execute-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Init-soapui-project.xml" afterPath="$PROJECT_DIR$/Init-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Licentio-soapui-project.xml" afterPath="$PROJECT_DIR$/Licentio-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/OTP-soapui-project.xml" afterPath="$PROJECT_DIR$/OTP-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Reports-soapui-project.xml" afterPath="$PROJECT_DIR$/Reports-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SDK-Notification-soapui-project.xml" afterPath="$PROJECT_DIR$/SDK-Notification-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Subscribers-soapui-project.xml" afterPath="$PROJECT_DIR$/Subscribers-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Users-soapui-project.xml" afterPath="$PROJECT_DIR$/Users-soapui-project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VSS-workspace.xml" afterPath="$PROJECT_DIR$/VSS-workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Version-soapui-project.xml" afterPath="$PROJECT_DIR$/Version-soapui-project.xml" />
     </list>
-    <ignored path="SoapUI.iws" />
+    <ignored path="init.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="845ecfc9-2e6f-4849-8ad0-3cba0b34b89b" time="1362562167150" ignored="false" />
-    <file path="/Dummy.txt" changelist="845ecfc9-2e6f-4849-8ad0-3cba0b34b89b" time="1379071805882" ignored="false" />
-    <file path="/a.dummy" changelist="845ecfc9-2e6f-4849-8ad0-3cba0b34b89b" time="1378121343737" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="845ecfc9-2e6f-4849-8ad0-3cba0b34b89b" time="1379072029387" ignored="false" />
+    <file path="/Dummy.txt" changelist="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" time="1377777102184" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/misc.xml" changelist="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" time="1377511363307" ignored="false" />
+    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" time="1377840181379" ignored="false" />
+    <file path="/init.groovy" changelist="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" time="1377514145360" ignored="false" />
+    <file path="/a.dummy" changelist="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" time="1377765160924" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +35,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -59,15 +69,44 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="SoapUI" />
+    <favorites_list name="init" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="Init-soapui-project.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Init-soapui-project.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="24" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Partner-soapui-project.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Partner-soapui-project.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="40380" column="29" selection-start="2342881" selection-end="2342881" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Subscribers-soapui-project.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Subscribers-soapui-project.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="40" selection-start="53986" selection-end="53986" vertical-scroll-proportion="0.31924883">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -75,9 +114,10 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitLogSettings">
+    <option name="myStructureFilterPaths" />
     <option name="myDateState">
       <MyDateState />
     </option>
@@ -85,17 +125,27 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$USER_HOME$/Downloads/standalone-full.xml" />
-        <option value="$PROJECT_DIR$/src/Execute-soapui-project.xml" />
-        <option value="$PROJECT_DIR$/src/Init.groovy" />
+        <option value="$PROJECT_DIR$/init/init.groovy" />
+        <option value="$PROJECT_DIR$/Execute-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Licentio-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/OTP-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Partner-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Reports-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/SDK-Notification-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Subscriber-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Users-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Version-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Corporates-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Init-soapui-project.xml" />
+        <option value="$PROJECT_DIR$/Subscribers-soapui-project.xml" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="1" />
-    <option name="width" value="1217" />
-    <option name="height" value="900" />
+    <option name="x" value="192" />
+    <option name="y" value="48" />
+    <option name="width" value="1440" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -123,32 +173,23 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
+              <option name="myItemId" value="init" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="External Libraries" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
+              <option name="myItemId" value="init" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
@@ -157,64 +198,39 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SoapUI" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
-    <property name="restartRequiresConfirmation" value="true" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\wiklundn\IdeaProjects\SoapUI\src" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Plugin.SoapUI">
+  <component name="RunManager">
     <configuration default="true" type="GroovyScriptRunConfiguration" factoryName="Groovy">
       <module name="" />
       <setting name="path" value="" />
       <setting name="vmparams" value="" />
       <setting name="params" value="" />
-      <setting name="workDir" value="C:\Users\wiklundn\IdeaProjects\SoapUI" />
+      <setting name="workDir" value="C:\Users\wiklundn\IdeaProjects\SoapUI\src" />
       <setting name="debug" value="false" />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="SoapUI" />
+      <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <method>
-        <option name="Make" enabled="false" />
-      </method>
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
       <option name="USE_SOCKET_TRANSPORT" value="true" />
@@ -222,6 +238,19 @@
       <option name="SHMEM_ADDRESS" value="javadebug" />
       <option name="HOST" value="localhost" />
       <option name="PORT" value="5005" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
@@ -249,19 +278,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -298,18 +314,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="SoapUI" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
-      <module name="SoapUI" />
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
-      <option name="PROGRAM_PARAMETERS" value="" />
-      <log_file path="$USER_HOME$/.IdeaIC12/system/plugins-sandbox/system/log/idea.log" checked="false" skipped="true" show_all="false" alias="IDEA LOG" />
-      <RunnerSettings RunnerId="Run" />
-      <ConfigurationWrapper RunnerId="Run" />
-      <method />
-    </configuration>
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="Plugin.SoapUI" />
-    </list>
+    <list size="0" />
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
       <Port>5050</Port>
@@ -336,75 +341,63 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="845ecfc9-2e6f-4849-8ad0-3cba0b34b89b" name="Default" comment="" />
-      <created>1362561782436</created>
-      <updated>1362561782436</updated>
+      <changelist id="6aa1b1b0-aa0a-4021-a127-557a58a8b1bc" name="Default" comment="" />
+      <created>1377510926318</created>
+      <updated>1377510926318</updated>
     </task>
-    <task id="LOCAL-00001" summary=".">
-      <created>1379071546565</created>
-      <updated>1379071546565</updated>
+    <task id="LOCAL-00001" summary="Rejected commit: Default">
+      <created>1377511211407</created>
+      <updated>1377511211407</updated>
     </task>
-    <task id="LOCAL-00002" summary=".">
-      <created>1379071626413</created>
-      <updated>1379071626413</updated>
+    <task id="LOCAL-00002" summary="Rejected commit: Default">
+      <created>1377511246482</created>
+      <updated>1377511246482</updated>
     </task>
     <task id="LOCAL-00003" summary=".">
-      <created>1379071765902</created>
-      <updated>1379071765902</updated>
+      <created>1377511284518</created>
+      <updated>1377511284518</updated>
     </task>
     <task id="LOCAL-00004" summary=".">
-      <created>1379071808031</created>
-      <updated>1379071808031</updated>
+      <created>1377764248620</created>
+      <updated>1377764248620</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updated host and port to servicehost and serviceport. Also changed from Project to Global scopr">
+      <created>1377765644221</created>
+      <updated>1377765644221</updated>
+    </task>
+    <task id="LOCAL-00006" summary=".">
+      <created>1377777105455</created>
+      <updated>1377777105455</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
-  <component name="TodoView" selected-index="0">
-    <todo-panel id="selected-file">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="default-changelist">
-      <are-packages-shown value="false" />
-      <are-modules-shown value="false" />
-      <flatten-packages value="false" />
-      <is-autoscroll-to-source value="false" />
-    </todo-panel>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="1" width="1217" height="900" extended-state="1" />
-    <editor active="false" />
+    <frame x="192" y="48" width="1440" height="860" extended-state="1" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3270525" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839838" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3261745" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839838" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25887445" sideWeight="0.6716016" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32839838" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24963716" sideWeight="0.67140824" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="soapUI Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32928678" sideWeight="0.99935025" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="soapUI Navigator" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.328722" sideWeight="0.67140824" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="soapUI Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32859176" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -413,7 +406,7 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <option name="myTodoPanelSettings">
       <value>
         <are-packages-shown value="false" />
@@ -458,6 +451,8 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="Rejected commit: Default" />
+    <MESSAGE value="Updated host and port to servicehost and serviceport. Also changed from Project to Global scopr" />
     <MESSAGE value="." />
   </component>
   <component name="XDebuggerManager">
@@ -468,88 +463,95 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Corporates-soapui-project.xml">
+    <entry file="file://$PROJECT_DIR$/OTA-soapui-project.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="134" selection-start="25177" selection-end="25177" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/standalone-full.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="73" selection-start="4802" selection-end="6081" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Corporates-soapui-project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="134" selection-start="24385" selection-end="24385" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/standalone-full.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="77" selection-start="4802" selection-end="4843" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Corporates-soapui-project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="134" selection-start="24385" selection-end="24385" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/standalone-full.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="77" selection-start="4802" selection-end="4843" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Corporates-soapui-project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="134" selection-start="23520" selection-end="23913" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/standalone-full.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="109" column="77" selection-start="4802" selection-end="4843" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Corporates-soapui-project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="134" selection-start="23522" selection-end="23915" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/standalone-full.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="336" column="63" selection-start="15923" selection-end="17109" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/standalone-full.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="73" selection-start="4802" selection-end="6081" vertical-scroll-proportion="0.027419355" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Corporates-soapui-project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="748" selection-start="787" selection-end="787" vertical-scroll-proportion="0.042183623" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Execute-soapui-project.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3347" column="752" selection-start="492666" selection-end="492666" vertical-scroll-proportion="0.024147727" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Services/Connect_1.wadl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="2" selection-start="453" selection-end="453" vertical-scroll-proportion="0.28451884">
+        <state line="320" column="69" selection-start="18380" selection-end="18380" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Load script.txt">
+    <entry file="file://$PROJECT_DIR$/init/init.groovy">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+        <state line="39" column="11" selection-start="1039" selection-end="1039" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#246#265#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Execute-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="158" selection-start="3717" selection-end="3717" vertical-scroll-proportion="-4.48">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/environment_MVTC.properties">
+    <entry file="file://$PROJECT_DIR$/Users-soapui-project.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="41" selection-start="462" selection-end="462" vertical-scroll-proportion="0.59274757">
+        <state line="31" column="333" selection-start="2093" selection-end="2093" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Version-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="3264" selection-start="3284" selection-end="3303" vertical-scroll-proportion="-0.68">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Corporates-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="780" selection-start="819" selection-end="819" vertical-scroll-proportion="0.02643857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Licentio-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="347" column="167" selection-start="15998" selection-end="15998" vertical-scroll-proportion="0.22395024">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OTP-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="494" selection-start="533" selection-end="533" vertical-scroll-proportion="0.02643857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reports-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="492" selection-start="531" selection-end="531" vertical-scroll-proportion="0.02643857">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SDK-Notification-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="91" column="167" selection-start="6184" selection-end="6184" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Init-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="24" selection-start="63" selection-end="63" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Partner-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40380" column="29" selection-start="2342881" selection-end="2342881" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Subscribers-soapui-project.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="40" selection-start="53986" selection-end="53986" vertical-scroll-proportion="0.31924883">
           <folding />
         </state>
       </provider>
@@ -583,6 +585,7 @@
       </state>
       <state key="GlobalLibrariesConfigurable.UI">
         <settings>
+          <last-edited>groovy-2.1.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -606,12 +609,24 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>SoapUI</last-edited>
+          <last-edited>init</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>
