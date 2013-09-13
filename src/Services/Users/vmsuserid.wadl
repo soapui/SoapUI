@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/vmsuserid"/>
+  <resources base="">
+    <resource path="vms/rest/users/{vmsuserid}" id="/vms/rest/">
+      <doc xml:lang="en" title="/vms/rest/"/>
+      <param name="vmsuserid" default="VMSUserId_user ${#Project#VMSUserId_user} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Lookup user by functinal key">
+        <doc xml:lang="en" title="Lookup user by functinal key"/>
+        <request/>
+        <response status="404">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="403">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+      <method name="DELETE" id="Delete user by functional key">
+        <doc xml:lang="en" title="Delete user by functional key"/>
+        <request/>
+        <response status="403">
+          <representation mediaType=""/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+      <method name="PUT" id="Update user by functional key">
+        <doc xml:lang="en" title="Update user by functional key"/>
+        <request>
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+        <response status="409">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

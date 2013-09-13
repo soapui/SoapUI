@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/admins"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport}">
+    <resource path="vms/rest/users/admins" id="/usrs/admins">
+      <doc xml:lang="en" title="/usrs/admins"/>
+      <param name="corporateid" default="${#Project#CorporateId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="search" default="${#Project#Search}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="start" default="${#Project#Start}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="${#Project#Limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="sort" default="${#Project#Sort}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="direction" default="${#Project#Direction}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Find admins">
+        <doc xml:lang="en" title="Find admins"/>
+        <request/>
+        <response status="404">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="*/*"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+      <method name="POST" id="Create admins">
+        <doc xml:lang="en" title="Create admins"/>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="403 409">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/plain"/>
+        </response>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="vms/rest/users/admins" id="Copy of /usrs/admins">
+      <doc xml:lang="en" title="Copy of /usrs/admins"/>
+      <param name="corporateid" default="${#Project#CorporateId}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Create admins">
+        <doc xml:lang="en" title="Create admins"/>
+        <request>
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/json"/>
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="403 409">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/plain"/>
+        </response>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

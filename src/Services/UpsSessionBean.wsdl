@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UpsBci" targetNamespace="http://provisioning.bci.client.vms.secunet.com/" xmlns:ns1="http://provisioning.bci.client.vms.secunet.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0" version="1.0" xmlns:tns="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="AccountData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="contactName" type="xs:string"/>
+          <xs:element name="companyName" type="xs:string"/>
+          <xs:element minOccurs="0" name="addresses" type="tns:Addresses"/>
+          <xs:element minOccurs="0" name="phoneNumbers" type="tns:PhoneNumbers"/>
+          <xs:element name="email" type="xs:string"/>
+          <xs:element minOccurs="0" name="permissionToContactByEmail" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="permissionToContactByPhone" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="accountDataParameters" type="tns:DataParametersCollection"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Addresses">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="address" type="tns:Address"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="Address">
+        <xs:sequence>
+          <xs:element name="streetNumber" type="xs:string"/>
+          <xs:element name="streetName" type="xs:string"/>
+          <xs:element minOccurs="0" name="streetType" type="xs:string"/>
+          <xs:element minOccurs="0" name="locality" type="xs:string"/>
+          <xs:element name="postcode" type="xs:string"/>
+          <xs:element minOccurs="0" name="stateOrProvince" type="xs:string"/>
+          <xs:element minOccurs="0" name="supplementaryLocation" type="xs:string"/>
+          <xs:element minOccurs="0" name="country" type="xs:string"/>
+          <xs:element name="addressType" type="tns:AddressType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhoneNumbers">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="phoneNumber" type="tns:PhoneNumber"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PhoneNumber">
+        <xs:sequence>
+          <xs:element name="phoneNumber" type="xs:anyURI"/>
+          <xs:element name="phoneNumberType" type="tns:PhoneType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataParametersCollection">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="DataParameters" type="tns:DataParameters"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DataParameters">
+        <xs:sequence>
+          <xs:element name="key" type="xs:string"/>
+          <xs:element name="value" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SubscriptionData">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="subscriptionParameters" type="tns:DataParametersCollection"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="subscriptionFeatures" nillable="true" type="tns:SubscriptionFeatures"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="relatedSubscriptions" nillable="true" type="tns:RelatedSubscription"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="SubscriptionFeatures">
+        <xs:sequence>
+          <xs:element name="featureName" type="xs:string"/>
+          <xs:element name="subscriptionFeatureParameters" type="tns:DataParametersCollection"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RelatedSubscription">
+        <xs:sequence>
+          <xs:element name="relatedOpcoSubscriptionID" type="xs:string"/>
+          <xs:element name="relationshipType" type="tns:RelationshipType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SubscriptionUpdateAction">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="disable"/>
+          <xs:enumeration value="modify"/>
+          <xs:enumeration value="enable"/>
+          <xs:enumeration value="cancel"/>
+          <xs:enumeration value="renew"/>
+          <xs:enumeration value="custom"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AddressType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="home"/>
+          <xs:enumeration value="business"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="PhoneType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="home"/>
+          <xs:enumeration value="business"/>
+          <xs:enumeration value="mobile"/>
+          <xs:enumeration value="fax"/>
+          <xs:enumeration value="other"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="RelationshipType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="trialParent"/>
+          <xs:enumeration value="business"/>
+          <xs:enumeration value="prerequisite"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="ResultCode">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="acceptedAsyncronously"/>
+          <xs:enumeration value="completed"/>
+          <xs:enumeration value="notSupported"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SubscriptionStatus">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="active"/>
+          <xs:enumeration value="pending"/>
+          <xs:enumeration value="cancelled"/>
+          <xs:enumeration value="disabled"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.vodafone.com/vf/vf/external_service_provisioning/messages/v.1.0" version="1.0" xmlns:ns1="http://www.vodafone.com/vf/core_common/types/v.0.2/" xmlns:ns2="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.vodafone.com/vf/core_common/types/v.0.2/"/>
+      <xs:import namespace="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0"/>
+      <xs:complexType name="UpdateServiceRequest">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="partnerID" type="xs:string"/>
+          <xs:element name="opcoID" type="xs:string"/>
+          <xs:element name="opcoCustomerID" type="xs:string"/>
+          <xs:element name="requestID" type="xs:string"/>
+          <xs:element name="opcoSubscriptionID" type="xs:string"/>
+          <xs:element minOccurs="0" name="partnerCustomerID" type="xs:string"/>
+          <xs:element name="subscriptionUpdateAction" type="ns2:SubscriptionUpdateAction"/>
+          <xs:element name="accountData" type="ns2:AccountData"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UpdateServiceResponse">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="resultCode" type="ns2:ResultCode"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RetrieveServiceRequest">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="partnerID" type="xs:string"/>
+          <xs:element name="opcoID" type="xs:string"/>
+          <xs:element name="opcoCustomerID" type="xs:string"/>
+          <xs:element name="opcoSubscriptionID" type="xs:string"/>
+          <xs:element minOccurs="0" name="partnerCustomerID" type="xs:string"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="RetrieveServiceResponse">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element minOccurs="0" name="subscriptionStatus" type="ns2:SubscriptionStatus"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateExternalAccountResponse">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="resultCode" type="ns2:ResultCode"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderServiceResponse">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="resultCode" type="ns2:ResultCode"/>
+          <xs:element minOccurs="0" name="partnerSubscriptionID" type="xs:string"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CreateExternalAccountRequest">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="partnerID" type="xs:string"/>
+          <xs:element name="opcoID" type="xs:string"/>
+          <xs:element name="opcoCustomerID" type="xs:string"/>
+          <xs:element name="requestID" type="xs:string"/>
+          <xs:element name="accountData" type="ns2:AccountData"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UpdateExternalAccountResponse">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="resultCode" type="ns2:ResultCode"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="UpdateExternalAccountRequest">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="partnerID" type="xs:string"/>
+          <xs:element name="opcoID" type="xs:string"/>
+          <xs:element name="opcoCustomerID" type="xs:string"/>
+          <xs:element name="requestID" type="xs:string"/>
+          <xs:element name="accountData" type="ns2:AccountData"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrderServiceRequest">
+        <xs:sequence>
+          <xs:element name="traceIdentifier" type="ns1:TraceIdentifier"/>
+          <xs:element name="partnerID" type="xs:string"/>
+          <xs:element name="opcoID" type="xs:string"/>
+          <xs:element name="opcoCustomerID" type="xs:string"/>
+          <xs:element name="requestID" type="xs:string"/>
+          <xs:element name="opcoSubscriptionID" type="xs:string"/>
+          <xs:element minOccurs="0" name="partnerCustomerID" type="xs:string"/>
+          <xs:element minOccurs="0" name="partnerProductID" type="xs:string"/>
+          <xs:element name="accountData" type="ns2:AccountData"/>
+          <xs:element minOccurs="0" name="subscriptionData" type="ns2:SubscriptionData"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.vodafone.com/vf/vf/external_service_provisioning/interface/v.1.0" version="1.0" xmlns:ns1="http://www.vodafone.com/vf/core_common/types/v.0.2/" xmlns:ns2="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0" xmlns:ns3="http://www.vodafone.com/vf/vf/external_service_provisioning/messages/v.1.0" xmlns:ns4="http://www.csapi.org/schema/parlayx/common/v3_1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.vodafone.com/vf/core_common/types/v.0.2/"/>
+      <xs:import namespace="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0"/>
+      <xs:import namespace="http://www.vodafone.com/vf/vf/external_service_provisioning/messages/v.1.0"/>
+      <xs:import namespace="http://www.csapi.org/schema/parlayx/common/v3_1"/>
+      <xs:element name="createExternalAccountRequest" type="ns3:CreateExternalAccountRequest"/>
+      <xs:element name="createExternalAccountResponse" type="ns3:CreateExternalAccountResponse"/>
+      <xs:element name="orderServiceRequest" type="ns3:OrderServiceRequest"/>
+      <xs:element name="orderServiceResponse" type="ns3:OrderServiceResponse"/>
+      <xs:element name="policyException" type="ns4:PolicyException"/>
+      <xs:element name="retrieveServiceRequest" type="ns3:RetrieveServiceRequest"/>
+      <xs:element name="retrieveServiceResponse" type="ns3:RetrieveServiceResponse"/>
+      <xs:element name="serviceException" type="ns4:ServiceException"/>
+      <xs:element name="updateExternalAccountRequest" type="ns3:UpdateExternalAccountRequest"/>
+      <xs:element name="updateExternalAccountResponse" type="ns3:UpdateExternalAccountResponse"/>
+      <xs:element name="updateServiceRequest" type="ns3:UpdateServiceRequest"/>
+      <xs:element name="updateServiceResponse" type="ns3:UpdateServiceResponse"/>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.vodafone.com/vf/core_common/types/v.0.2/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="TraceIdentifier">
+        <xs:sequence>
+          <xs:element form="qualified" name="applicationID" type="xs:string"/>
+          <xs:element form="qualified" name="serviceID" type="xs:string"/>
+          <xs:element form="qualified" name="serviceInterfaceVersion" type="xs:string"/>
+          <xs:element form="qualified" name="timestamp" type="xs:dateTime"/>
+          <xs:element form="qualified" name="referenceID" type="xs:string"/>
+          <xs:element form="qualified" minOccurs="0" name="correlationID" type="xs:string"/>
+          <xs:element form="qualified" name="identityID" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema targetNamespace="http://www.csapi.org/schema/parlayx/common/v3_1" version="1.0" xmlns:tns="http://www.csapi.org/schema/parlayx/common/v3_1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ServiceException">
+        <xs:sequence>
+          <xs:element form="qualified" name="messageId" type="xs:string"/>
+          <xs:element form="qualified" name="text" type="xs:string"/>
+          <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="variables" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="ServiceError">
+        <xs:sequence>
+          <xs:element form="qualified" name="messageId" type="xs:string"/>
+          <xs:element form="qualified" name="text" type="xs:string"/>
+          <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="variables" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TimeMetric">
+        <xs:sequence>
+          <xs:element form="qualified" name="units" type="xs:int"/>
+          <xs:element name="metric" type="tns:TimeMetrics"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PolicyException">
+        <xs:sequence>
+          <xs:element form="qualified" name="messageId" type="xs:string"/>
+          <xs:element form="qualified" name="text" type="xs:string"/>
+          <xs:element form="qualified" maxOccurs="unbounded" minOccurs="0" name="variables" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="TimeMetrics">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Millisecond"/>
+          <xs:enumeration value="Second"/>
+          <xs:enumeration value="Minute"/>
+          <xs:enumeration value="Hour"/>
+          <xs:enumeration value="Day"/>
+          <xs:enumeration value="Week"/>
+          <xs:enumeration value="Month"/>
+          <xs:enumeration value="Year"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://provisioning.bci.client.vms.secunet.com/" xmlns:ns1="http://www.vodafone.com/vf/core_common/types/v.0.2/" xmlns:ns2="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0" xmlns:ns3="http://www.vodafone.com/vf/vf/external_service_provisioning/messages/v.1.0" xmlns:tns="http://provisioning.bci.client.vms.secunet.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://www.vodafone.com/vf/core_common/types/v.0.2/"/>
+      <xs:import namespace="http://www.vodafone.com/vf/vf/external_service_provisioning_common/types/v.1.0"/>
+      <xs:import namespace="http://www.vodafone.com/vf/vf/external_service_provisioning/messages/v.1.0"/>
+      <xs:element name="retrieveServiceIn" type="tns:retrieveServiceIn"/>
+      <xs:element name="retrieveServiceInResponse" type="tns:retrieveServiceInResponse"/>
+      <xs:element name="updateServiceIn" type="tns:updateServiceIn"/>
+      <xs:element name="updateServiceInResponse" type="tns:updateServiceInResponse"/>
+      <xs:complexType name="updateServiceIn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="ns3:UpdateServiceRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="updateServiceInResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns3:UpdateServiceResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveServiceIn">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="arg0" type="ns3:RetrieveServiceRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveServiceInResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="return" type="ns3:RetrieveServiceResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="PersistenceException" type="tns:PersistenceException"/>
+      <xs:complexType name="PersistenceException">
+        <xs:sequence/>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="retrieveServiceInResponse">
+    <wsdl:part element="ns1:retrieveServiceInResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveServiceIn">
+    <wsdl:part element="ns1:retrieveServiceIn" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="PersistenceException">
+    <wsdl:part element="ns1:PersistenceException" name="PersistenceException"/>
+  </wsdl:message>
+  <wsdl:message name="updateServiceIn">
+    <wsdl:part element="ns1:updateServiceIn" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateServiceInResponse">
+    <wsdl:part element="ns1:updateServiceInResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="UpsBci">
+    <wsdl:operation name="updateServiceIn">
+      <wsdl:input message="ns1:updateServiceIn" name="updateServiceIn"/>
+      <wsdl:output message="ns1:updateServiceInResponse" name="updateServiceInResponse"/>
+      <wsdl:fault message="ns1:PersistenceException" name="PersistenceException"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveServiceIn">
+      <wsdl:input message="ns1:retrieveServiceIn" name="retrieveServiceIn"/>
+      <wsdl:output message="ns1:retrieveServiceInResponse" name="retrieveServiceInResponse"/>
+      <wsdl:fault message="ns1:PersistenceException" name="PersistenceException"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

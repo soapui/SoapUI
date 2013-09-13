@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="OTANotificationWebService" targetNamespace="http://ws.wrapper.core.ota.gide.com/notification/2012-02-23" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://ws.wrapper.core.ota.gide.com/notification/2012-02-23" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://ws.wrapper.core.ota.gide.com/notification/2012-02-23" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="incomingMessage" nillable="true" type="tns:incomingMessage"/>
+      <xs:element name="incomingMessageResponse" nillable="true" type="tns:incomingMessageResponse"/>
+      <xs:element name="statusNotification" nillable="true" type="tns:statusNotification"/>
+      <xs:element name="statusNotificationResponse" nillable="true" type="tns:statusNotificationResponse"/>
+      <xs:complexType name="statusNotification">
+        <xs:sequence>
+          <xs:element name="responseData" type="xs:string"/>
+          <xs:element name="errorCode" type="xs:string"/>
+          <xs:element name="status" type="tns:StatusType"/>
+          <xs:element name="externalId" type="xs:string"/>
+          <xs:element name="originatingAddress" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="statusNotificationResponse">
+        <xs:sequence>
+          <xs:element name="errorcode" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incomingMessage">
+        <xs:sequence>
+          <xs:element name="message" type="xs:base64Binary"/>
+          <xs:element name="tar" type="xs:string"/>
+          <xs:element name="originatingAddress" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incomingMessageResponse">
+        <xs:sequence>
+          <xs:element name="errorcode" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="StatusType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="EXPIRED"/>
+          <xs:enumeration value="FAILED"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="incomingMessage">
+    <wsdl:part element="tns:incomingMessage" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="statusNotificationResponse">
+    <wsdl:part element="tns:statusNotificationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="incomingMessageResponse">
+    <wsdl:part element="tns:incomingMessageResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="statusNotification">
+    <wsdl:part element="tns:statusNotification" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="OTANotificationWebService">
+    <wsdl:operation name="statusNotification">
+      <wsdl:input message="tns:statusNotification" name="statusNotification"/>
+      <wsdl:output message="tns:statusNotificationResponse" name="statusNotificationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMessage">
+      <wsdl:input message="tns:incomingMessage" name="incomingMessage"/>
+      <wsdl:output message="tns:incomingMessageResponse" name="incomingMessageResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OTANotificationWebServiceSoapBinding" type="tns:OTANotificationWebService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="statusNotification">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="statusNotification">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="statusNotificationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMessage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="incomingMessage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="incomingMessageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OTANotificationWebService">
+    <wsdl:port binding="tns:OTANotificationWebServiceSoapBinding" name="OTANotificationWebServicePort">
+      <soap:address location="http://zvss1:7105/licentio/ws/ota"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

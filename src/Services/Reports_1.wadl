@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Reports"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport} ">
+    <resource path="vms/rest/reports" id="/vms/rest/reports">
+      <doc xml:lang="en" title="/vms/rest/reports"/>
+      <method name="GET" id="GET Reports">
+        <doc xml:lang="en" title="GET Reports"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

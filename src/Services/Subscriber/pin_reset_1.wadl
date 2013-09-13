@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Subscriber/pin_reset"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport}">
+    <resource path="vms/rest/subscribers/{msisdn}/pin_reset" id="pin_reset">
+      <doc xml:lang="en" title="pin_reset"/>
+      <param name="msisdn" type="xs:string" required="false" default="" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="Method 1">
+        <doc xml:lang="en" title="Method 1"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="0">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="403">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+        <response status="409">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

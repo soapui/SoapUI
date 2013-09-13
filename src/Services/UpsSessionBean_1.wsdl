@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="UpsSessionBeanService" targetNamespace="http://provisioning.persistence.server.vms.secunet.com/" xmlns:ns1="http://provisioning.bci.client.vms.secunet.com/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://provisioning.persistence.server.vms.secunet.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="UpsSessionBean.wsdl" namespace="http://provisioning.bci.client.vms.secunet.com/"/>
+  <wsdl:binding name="UpsSessionBeanServiceSoapBinding" type="ns1:UpsBci">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="updateServiceIn">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="updateServiceIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateServiceInResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="PersistenceException">
+        <soap:fault name="PersistenceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveServiceIn">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="retrieveServiceIn">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveServiceInResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+      <wsdl:fault name="PersistenceException">
+        <soap:fault name="PersistenceException" use="literal"/>
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UpsSessionBeanService">
+    <wsdl:port binding="tns:UpsSessionBeanServiceSoapBinding" name="UpsSessionBeanPort">
+      <soap:address location="http://localhost:8080/vms/UpsSessionBeanService/UpsSessionBean"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

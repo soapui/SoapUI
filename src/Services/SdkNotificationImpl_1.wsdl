@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SdkNotificationService" targetNamespace="http://sdknotification.ws.licentio.smarttrust.com/" xmlns:ns1="http://sdknotification.ws.licentio.smarttrust.com" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sdknotification.ws.licentio.smarttrust.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:import location="SdkNotificationImpl.wsdl" namespace="http://sdknotification.ws.licentio.smarttrust.com"/>
+  <wsdl:binding name="SdkNotificationServiceSoapBinding" type="ns1:SdkNotification">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="notification">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="notification">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="notificationResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMessage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="incomingMessage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="incomingMessageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SdkNotificationService">
+    <wsdl:port binding="tns:SdkNotificationServiceSoapBinding" name="SdkNotificationPort">
+      <soap:address location="http://10.208.164.0:8080/vms/SdkNotificationService/SdkNotificationImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

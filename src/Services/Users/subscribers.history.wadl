@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/vmsuserid/subscribers"/>
+  <resources base="">
+    <resource path="vms/rest/users/{vmsuserid}/subscribers/{msisdn}" id="users/vmsuserid/subscribers">
+      <doc xml:lang="en" title="users/vmsuserid/subscribers"/>
+      <param name="vmsuserid" default="${#Project#VMSUserId_user} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="msisdn" default="${#Project#Msisdn} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="DELETE" id="Remove subscriber from user">
+        <doc xml:lang="en" title="Remove subscriber from user"/>
+        <request/>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+        <response status="409 502">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

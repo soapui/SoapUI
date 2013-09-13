@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/bulkupload"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport}">
+    <resource path="vms/rest/users/bulkupload" id="users/bulkupload">
+      <doc xml:lang="en" title="users/bulkupload"/>
+      <param name="Type" default="${#Project#Type} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="Disposition" default="${#Project#Disposition} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Post">
+        <doc xml:lang="en" title="Post"/>
+        <request/>
+      </method>
+    </resource>
+  </resources>
+</application>

@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SdkService" targetNamespace="http://sdk.ws.licentio.smarttrust.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://sdk.ws.licentio.smarttrust.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://sdk.ws.licentio.smarttrust.com/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="authenticate" nillable="true" type="tns:authenticate"/>
+      <xs:element name="authenticateResp" nillable="true" type="tns:authenticateResp"/>
+      <xs:element name="changeLanguage" nillable="true" type="tns:changeLanguage"/>
+      <xs:element name="changeLanguageResponse" nillable="true" type="tns:changeLanguageResponse"/>
+      <xs:element name="resetPIN" nillable="true" type="tns:resetPIN"/>
+      <xs:element name="resetPINResponse" nillable="true" type="tns:resetPINResponse"/>
+      <xs:element name="retrieveOtp" nillable="true" type="tns:retrieveOtp"/>
+      <xs:element name="retrieveOtpResponse" nillable="true" type="tns:retrieveOtpResponse"/>
+      <xs:element name="sendOtp" nillable="true" type="tns:sendOtp"/>
+      <xs:element name="sendOtpResponse" nillable="true" type="tns:sendOtpResponse"/>
+      <xs:element name="sendSM" nillable="true" type="tns:sendSM"/>
+      <xs:element name="sendSMResponse" nillable="true" type="tns:sendSMResponse"/>
+      <xs:element name="validateOtp" nillable="true" type="tns:validateOtp"/>
+      <xs:element name="validateOtpResponse" nillable="true" type="tns:validateOtpResponse"/>
+      <xs:element name="verify" nillable="true" type="tns:verify"/>
+      <xs:element name="verifyResponse" nillable="true" type="tns:verifyResponse"/>
+      <xs:complexType name="validateOtp">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="otp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="validateOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkValidateOtpResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sdkValidateOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:SdkResultType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveOtp">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="length" type="xs:int"/>
+          <xs:element name="lifetime" type="xs:int"/>
+          <xs:element name="otpseed" nillable="true" type="xs:base64Binary"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="retrieveOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkOtpResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sdkOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:SdkResultType"/>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string"/>
+          <xs:element minOccurs="0" name="otp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendSM">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="text" type="xs:string"/>
+          <xs:element name="validityPeriod" type="xs:long"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendSMResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sdkResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:SdkResultType"/>
+          <xs:element minOccurs="0" name="transactionId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeLanguage">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="langFile" type="xs:byte"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="changeLanguageResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticate">
+        <xs:sequence>
+          <xs:element name="request" type="tns:authenticateRequest"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticateRequest">
+        <xs:sequence>
+          <xs:element name="subject" type="xs:string"/>
+          <xs:element name="subjectType" type="tns:SubjectType"/>
+          <xs:element name="protocol" type="tns:Protocol"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticateResp">
+        <xs:sequence>
+          <xs:element name="response" type="tns:authenticateResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="authenticateResponse">
+        <xs:sequence>
+          <xs:element name="mobileAuthentication" type="tns:MobileAuthenticationType"/>
+          <xs:element name="pollUrl" type="xs:string"/>
+          <xs:element name="language" type="xs:string"/>
+          <xs:element name="result" type="tns:AuthenticateResultType"/>
+          <xs:element name="transactionId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendOtp">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="length" type="xs:int"/>
+          <xs:element name="lifetime" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="sendOtpResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkOtpResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetPIN">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="resetPINResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:sdkResponse"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="verify">
+        <xs:sequence>
+          <xs:element name="transactionId" type="xs:string"/>
+          <xs:element minOccurs="0" name="otp" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="verifyResponse">
+        <xs:sequence>
+          <xs:element name="result" type="tns:AuthenticateResultType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="SdkResultType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="ERROR"/>
+          <xs:enumeration value="MSISDN_NOT_EXIST"/>
+          <xs:enumeration value="OTP_EXPIRED"/>
+          <xs:enumeration value="INVALID_LENGTH"/>
+          <xs:enumeration value="INVALID_VALIDITY_PERIOD"/>
+          <xs:enumeration value="NOT_VALID_OTP"/>
+          <xs:enumeration value="SEND_FAILURE"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="SubjectType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="EMAIL"/>
+          <xs:enumeration value="USERNAME"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="Protocol">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="SAML"/>
+          <xs:enumeration value="OPENID"/>
+          <xs:enumeration value="RADIUS"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="MobileAuthenticationType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OTP"/>
+          <xs:enumeration value="SIM"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:simpleType name="AuthenticateResultType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="FAILED"/>
+          <xs:enumeration value="ONGOING"/>
+          <xs:enumeration value="INTERNAL_ERROR"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="changeLanguage">
+    <wsdl:part element="tns:changeLanguage" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="resetPIN">
+    <wsdl:part element="tns:resetPIN" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendSMResponse">
+    <wsdl:part element="tns:sendSMResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="changeLanguageResponse">
+    <wsdl:part element="tns:changeLanguageResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="authenticateResponse">
+    <wsdl:part element="tns:authenticateResp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendOtpResponse">
+    <wsdl:part element="tns:sendOtpResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="authenticate">
+    <wsdl:part element="tns:authenticate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateOtpResponse">
+    <wsdl:part element="tns:validateOtpResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendOtp">
+    <wsdl:part element="tns:sendOtp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="resetPINResponse">
+    <wsdl:part element="tns:resetPINResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verifyResponse">
+    <wsdl:part element="tns:verifyResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveOtp">
+    <wsdl:part element="tns:retrieveOtp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="sendSM">
+    <wsdl:part element="tns:sendSM" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="validateOtp">
+    <wsdl:part element="tns:validateOtp" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="retrieveOtpResponse">
+    <wsdl:part element="tns:retrieveOtpResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="verify">
+    <wsdl:part element="tns:verify" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Sdk">
+    <wsdl:operation name="validateOtp">
+      <wsdl:input message="tns:validateOtp" name="validateOtp"/>
+      <wsdl:output message="tns:validateOtpResponse" name="validateOtpResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveOtp">
+      <wsdl:input message="tns:retrieveOtp" name="retrieveOtp"/>
+      <wsdl:output message="tns:retrieveOtpResponse" name="retrieveOtpResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendSM">
+      <wsdl:input message="tns:sendSM" name="sendSM"/>
+      <wsdl:output message="tns:sendSMResponse" name="sendSMResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="changeLanguage">
+      <wsdl:input message="tns:changeLanguage" name="changeLanguage"/>
+      <wsdl:output message="tns:changeLanguageResponse" name="changeLanguageResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <wsdl:input message="tns:authenticate" name="authenticate"/>
+      <wsdl:output message="tns:authenticateResponse" name="authenticateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="sendOtp">
+      <wsdl:input message="tns:sendOtp" name="sendOtp"/>
+      <wsdl:output message="tns:sendOtpResponse" name="sendOtpResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="resetPIN">
+      <wsdl:input message="tns:resetPIN" name="resetPIN"/>
+      <wsdl:output message="tns:resetPINResponse" name="resetPINResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="verify">
+      <wsdl:input message="tns:verify" name="verify"/>
+      <wsdl:output message="tns:verifyResponse" name="verifyResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SdkServiceSoapBinding" type="tns:Sdk">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="validateOtp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="validateOtp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="validateOtpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="retrieveOtp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="retrieveOtp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="retrieveOtpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendSM">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendSM">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendSMResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="changeLanguage">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="changeLanguage">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="changeLanguageResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authenticate">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="authenticate">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="authenticateResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="sendOtp">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="sendOtp">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="sendOtpResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="resetPIN">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="resetPIN">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="resetPINResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verify">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="verify">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="verifyResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SdkService">
+    <wsdl:port binding="tns:SdkServiceSoapBinding" name="SdkPort">
+      <soap:address location="http://10.208.162.182:7105/licentio/ws/sdk"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

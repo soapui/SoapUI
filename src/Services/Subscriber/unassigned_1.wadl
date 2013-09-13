@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Subscribers/unassigned"/>
+  <resources base="http://${">
+    <resource path="vms/rest/subscribers/unassigned" id="/vms/rest/subscribers/unassigned">
+      <doc xml:lang="en" title="/vms/rest/subscribers/unassigned"/>
+      <param name="search" default="${#Project#Search}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="start" default="${#Project#Start}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="${#Project#Limit}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="sort" default="${#Project#Sort}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="direction" default="${#Project#Direction}" type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Get">
+        <doc xml:lang="en" title="Get"/>
+        <request/>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

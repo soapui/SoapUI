@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/languages"/>
+  <resources base="">
+    <resource path="vms/rest/users/languages" id="user/languages">
+      <doc xml:lang="en" title="user/languages"/>
+      <method name="GET" id="Get">
+        <doc xml:lang="en" title="Get"/>
+        <request/>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

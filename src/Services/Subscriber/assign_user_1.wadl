@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="subscribers/msisdn/assign_user"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport} ">
+    <resource path="vms/rest/subscribers/{msisdn}/assign_user/{vmsuserid}/replace" id="subscribers/msisdn/assign_user/vmsuserid/replace">
+      <doc xml:lang="en" title="subscribers/msisdn/assign_user/vmsuserid/replace"/>
+      <param name="vmsuserid" default="${#Project#VMSUserId_user}" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="msisdn" default="${#Project#MsIsdn}" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Replace">
+        <doc xml:lang="en" title="Replace"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+    <resource path="vms/rest/subscribers/{msisdn}/assign_user/{vmsuserid}/activate" id="subscribers/msisdn/assign_user/vmsuserid/activate">
+      <doc xml:lang="en" title="subscribers/msisdn/assign_user/vmsuserid/activate"/>
+      <param name="vmsuserid" default="${#Project#VMSUserId_user} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="msisdn" default="${#Project#MsIsdn} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Activate">
+        <doc xml:lang="en" title="Activate"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

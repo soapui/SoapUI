@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/adminInvitationMail"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport}">
+    <resource path="vms/rest/users/adminInvitationMail" id="users/adminInvitationMail">
+      <doc xml:lang="en" title="users/adminInvitationMail"/>
+      <method name="PUT" id="Put">
+        <doc xml:lang="en" title="Put"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="403">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="*/*"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

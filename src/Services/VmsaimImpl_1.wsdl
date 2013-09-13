@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="VmsaimService" targetNamespace="http://www.vodafone.de/vms/wsdl/vmsaim.wsdl" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.vodafone.de/vms/wsdl/vmsaim.wsdl" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.vodafone.de/vms/wsdl/vmsaim.wsdl" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="getUserID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="invitationID" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="getUserIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="tns:getUserIDRespType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setInvitationAsUsed">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="invitationID" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="setInvitationAsUsedResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="result" type="tns:resultCodeType"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="getUserIDRespType">
+        <xs:sequence>
+          <xs:element name="resultCode" type="tns:resultCodeType"/>
+          <xs:element minOccurs="0" name="userID" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="resultCodeType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="success"/>
+          <xs:enumeration value="invitationIdUnknown"/>
+          <xs:enumeration value="invitationIdInvalid"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="setInvitationAsUsedResponse">
+    <wsdl:part element="tns:setInvitationAsUsedResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="setInvitationAsUsed">
+    <wsdl:part element="tns:setInvitationAsUsed" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUserIDResponse">
+    <wsdl:part element="tns:getUserIDResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getUserID">
+    <wsdl:part element="tns:getUserID" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="vmsaimPortType">
+    <wsdl:operation name="setInvitationAsUsed">
+      <wsdl:input message="tns:setInvitationAsUsed" name="setInvitationAsUsed"/>
+      <wsdl:output message="tns:setInvitationAsUsedResponse" name="setInvitationAsUsedResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getUserID">
+      <wsdl:input message="tns:getUserID" name="getUserID"/>
+      <wsdl:output message="tns:getUserIDResponse" name="getUserIDResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="VmsaimServiceSoapBinding" type="tns:vmsaimPortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="setInvitationAsUsed">
+      <soap:operation soapAction="http://www.vodafone.de/vms/aim/setInvitationAsUsed" style="document"/>
+      <wsdl:input name="setInvitationAsUsed">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="setInvitationAsUsedResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getUserID">
+      <soap:operation soapAction="http://www.vodafone.de/vms/aim/getUserID" style="document"/>
+      <wsdl:input name="getUserID">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getUserIDResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VmsaimService">
+    <wsdl:port binding="tns:VmsaimServiceSoapBinding" name="VmsaimPort">
+      <soap:address location="http://localhost:8080/vms/VmsaimService/VmsaimImpl"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

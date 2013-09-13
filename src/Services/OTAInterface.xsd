@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Oracle JAX-WS 2.1.5.--><xs:schema version="1.0" targetNamespace="http://ws.wrapper.core.ota.gide.com/2012-07-18" xmlns:tns="http://ws.wrapper.core.ota.gide.com/2012-07-18" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="downloadRequest" type="tns:downloadRequest"/>
+  <xs:element name="lockRequest" type="tns:lockRequest"/>
+  <xs:element name="otaResponse" type="tns:otaResponse"/>
+  <xs:element name="sendDataRequest" type="tns:sendDataRequest"/>
+  <xs:element name="statusCheckRequest" type="tns:statusCheckRequest"/>
+  <xs:element name="statusCheckResponse" type="tns:statusCheckResponse"/>
+  <xs:element name="unlockRequest" type="tns:unlockRequest"/>
+  <xs:element name="updateFileRequest" type="tns:updateFileRequest"/>
+  <xs:complexType name="sendDataRequest">
+    <xs:sequence>
+      <xs:element name="data" type="xs:base64Binary"/>
+      <xs:element name="appletId" type="xs:string"/>
+      <xs:element name="destinationAddress" type="xs:string"/>
+      <xs:element name="imsi" type="xs:string"/>
+      <xs:element name="externalId" type="xs:string"/>
+      <xs:element name="caller" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="unlockRequest">
+    <xs:sequence>
+      <xs:element name="appletId" type="xs:string"/>
+      <xs:element name="destinationAddress" type="xs:string"/>
+      <xs:element name="imsi" type="xs:string"/>
+      <xs:element name="externalId" type="xs:string"/>
+      <xs:element name="caller" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusCheckResponse">
+    <xs:sequence>
+      <xs:element name="SIMStatus" type="tns:statusDataList"/>
+      <xs:element name="errorcode" type="xs:string"/>
+      <xs:element name="status" type="tns:StatusType"/>
+      <xs:element name="responseData" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusDataList">
+    <xs:sequence>
+      <xs:element name="entry" type="tns:StatusListEntry" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="StatusListEntry">
+    <xs:sequence>
+      <xs:element name="name" type="xs:string"/>
+      <xs:element name="value" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="statusCheckRequest">
+    <xs:sequence>
+      <xs:element name="appletId" type="xs:string"/>
+      <xs:element name="destinationAddress" type="xs:string"/>
+      <xs:element name="imsi" type="xs:string"/>
+      <xs:element name="externalId" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="updateFileRequest">
+    <xs:sequence>
+      <xs:element name="data" type="tns:fileData" maxOccurs="unbounded"/>
+      <xs:element name="path" type="xs:string"/>
+      <xs:element name="destinationAddress" type="xs:string"/>
+      <xs:element name="imsi" type="xs:string"/>
+      <xs:element name="externalId" type="xs:string"/>
+      <xs:element name="caller" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="fileData">
+    <xs:sequence>
+      <xs:element name="data" type="xs:base64Binary"/>
+      <xs:element name="recNo" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="otaResponse">
+    <xs:sequence>
+      <xs:element name="errorcode" type="xs:string"/>
+      <xs:element name="status" type="tns:StatusType"/>
+      <xs:element name="responseData" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="lockRequest">
+    <xs:sequence>
+      <xs:element name="appletId" type="xs:string"/>
+      <xs:element name="destinationAddress" type="xs:string"/>
+      <xs:element name="imsi" type="xs:string"/>
+      <xs:element name="externalId" type="xs:string"/>
+      <xs:element name="caller" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="downloadRequest">
+    <xs:sequence>
+      <xs:element name="appletId" type="xs:string"/>
+      <xs:element name="destinationAddress" type="xs:string"/>
+      <xs:element name="imsi" type="xs:string"/>
+      <xs:element name="externalId" type="xs:string"/>
+      <xs:element name="caller" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="StatusType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK"/>
+      <xs:enumeration value="EXPIRED"/>
+      <xs:enumeration value="FAILED"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

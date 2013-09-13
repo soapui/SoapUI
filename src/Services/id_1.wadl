@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Reports/id"/>
+  <resources base="http://${">
+    <resource path="reports/{id}" id="/reports/id">
+      <doc xml:lang="en" title="/reports/id"/>
+      <param name="id" default="${#Project#CorporateId} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GET Reports/id">
+        <doc xml:lang="en" title="GET Reports/id"/>
+        <request/>
+      </method>
+    </resource>
+  </resources>
+</application>

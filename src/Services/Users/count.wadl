@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/count"/>
+  <resources base="">
+    <resource path="vms/rest/users/count" id="users/count">
+      <doc xml:lang="en" title="users/count"/>
+      <param name="search" default="${#Project#Search} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="service" default="${#Project#service} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="status" default="${#Project#status} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Get">
+        <doc xml:lang="en" title="Get"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

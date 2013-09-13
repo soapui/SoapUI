@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="/otp/from_url/from_sms"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport} ">
+    <resource path="vms/rest/otp/from_url/{urlotp}/from_sms/{smsotp}" id="/vms/rest//otp/from_url/urlotp/from_sms/smsotp">
+      <doc xml:lang="en" title="/vms/rest//otp/from_url/urlotp/from_sms/smsotp"/>
+      <param name="urlotp" default="${#Project#UrlOtp} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="smsotp" default="smsotp" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="PUT /otp/from_url/from_sms">
+        <doc xml:lang="en" title="PUT /otp/from_url/from_sms"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="404">
+          <representation mediaType=""/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="403">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="500 502">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

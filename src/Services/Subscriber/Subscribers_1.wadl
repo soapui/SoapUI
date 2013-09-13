@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="Subscribers"/>
+  <resources base="">
+    <resource path="vms/rest/subscribers" id="/vms/rest/subscribers">
+      <doc xml:lang="en" title="/vms/rest/subscribers"/>
+      <param name="corporateid" default="${#Project#CorporateId} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="search" default="${#Project#Search} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="start" default="${#Project#Start} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="limit" default="${#Project#Limit} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="sort" default="${#Project#Sort} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="direction" default="${#Project#Direction} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="GET">
+        <doc xml:lang="en" title="GET"/>
+        <request/>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+      <method name="PUT" id="PUT">
+        <doc xml:lang="en" title="PUT"/>
+        <request/>
+      </method>
+    </resource>
+  </resources>
+</application>

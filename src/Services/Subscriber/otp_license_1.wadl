@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="subscribers/msisdn/services/id/otp_license"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport} ">
+    <resource path="vms/rest/subscribers/{msisdn}/otp_license" id="subscribers/msisdn/services/id/otp_license">
+      <doc xml:lang="en" title="subscribers/msisdn/services/id/otp_license"/>
+      <param name="msisdn" default="${#Project#Msisdn} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Post">
+        <doc xml:lang="en" title="Post"/>
+        <request>
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/xml"/>
+          <representation mediaType="application/json"/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+      </method>
+      <method name="DELETE" id="Delete">
+        <doc xml:lang="en" title="Delete"/>
+        <request/>
+        <response status="403">
+          <representation mediaType=""/>
+        </response>
+        <response status="400">
+          <representation mediaType="text/html;charset=utf-8"/>
+        </response>
+        <response status="">
+          <representation mediaType="application/json"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

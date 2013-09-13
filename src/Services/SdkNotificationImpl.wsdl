@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="SdkNotification" targetNamespace="http://sdknotification.ws.licentio.smarttrust.com" xmlns:ns1="http://sdknotification.ws.licentio.smarttrust.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema targetNamespace="http://sdknotification.ws.licentio.smarttrust.com" version="1.0" xmlns:tns="http://sdknotification.ws.licentio.smarttrust.com" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="incomingMessage" type="tns:incomingMessage"/>
+      <xs:element name="incomingMessageResponse" type="tns:incomingMessageResponse"/>
+      <xs:element name="notification" type="tns:notification"/>
+      <xs:element name="notificationResponse" type="tns:notificationResponse"/>
+      <xs:complexType name="notification">
+        <xs:sequence>
+          <xs:element name="msisdn" type="xs:string"/>
+          <xs:element name="transactionid" type="xs:string"/>
+          <xs:element name="status" type="tns:StatusType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="notificationResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incomingMessage">
+        <xs:sequence>
+          <xs:element name="message" type="xs:base64Binary"/>
+          <xs:element name="tar" type="xs:string"/>
+          <xs:element name="originatingAddress" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="incomingMessageResponse">
+        <xs:sequence>
+          <xs:element name="result" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="StatusType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="OK"/>
+          <xs:enumeration value="EXPIRED"/>
+          <xs:enumeration value="FAILED"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="incomingMessageResponse">
+    <wsdl:part element="ns1:incomingMessageResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="notification">
+    <wsdl:part element="ns1:notification" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="notificationResponse">
+    <wsdl:part element="ns1:notificationResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="incomingMessage">
+    <wsdl:part element="ns1:incomingMessage" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="SdkNotification">
+    <wsdl:operation name="notification">
+      <wsdl:input message="ns1:notification" name="notification"/>
+      <wsdl:output message="ns1:notificationResponse" name="notificationResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="incomingMessage">
+      <wsdl:input message="ns1:incomingMessage" name="incomingMessage"/>
+      <wsdl:output message="ns1:incomingMessageResponse" name="incomingMessageResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

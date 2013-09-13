@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/bulkupload/id/status"/>
+  <resources base="http://${#Global#Servicehost}:${#Global#Serviceport} ">
+    <resource path="vms/rest/users/bulkupload/{id}/status" id="users/bulkupload/id/status">
+      <doc xml:lang="en" title="users/bulkupload/id/status"/>
+      <param name="id" default="${#Project#UploadId} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Get">
+        <doc xml:lang="en" title="Get"/>
+        <request/>
+      </method>
+    </resource>
+  </resources>
+</application>

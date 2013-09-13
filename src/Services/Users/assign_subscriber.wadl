@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/vmsuserid/assign_subscriber"/>
+  <resources base="">
+    <resource path="vms/rest/users/{vmsuserid}/assign_subscriber/{msisdn}" id="users/vmsuserid/assign_subscriber">
+      <doc xml:lang="en" title="users/vmsuserid/assign_subscriber"/>
+      <param name="vmsuserid" default="vmsuserid" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="activate" default="${#Project#Activate} " type="xs:string" required="false" style="query" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="msisdn" default="Msisdn ${#Project#Msisdn} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="POST" id="Post">
+        <doc xml:lang="en" title="Post"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="0">
+          <representation mediaType=""/>
+        </response>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="500">
+          <representation mediaType="*/*"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

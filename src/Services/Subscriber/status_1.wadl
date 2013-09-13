@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="subscribers/services/status"/>
+  <resources base="http://${">
+    <resource path="vms/rest/subscribers/{msisdn}/services/{id}/status" id="subscribers/msisdn/services/id/status">
+      <doc xml:lang="en" title="subscribers/msisdn/services/id/status"/>
+      <param name="msisdn" default="${#Project#Msisdn} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <param name="id" default="${#Project#ServiceId} " type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="GET" id="Get">
+        <doc xml:lang="en" title="Get"/>
+        <request/>
+        <response status="404">
+          <representation mediaType=""/>
+          <representation mediaType=""/>
+        </response>
+        <response status="409 502">
+          <representation mediaType="text/plain;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>

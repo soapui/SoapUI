@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02">
+  <doc xml:lang="en" title="users/admins/resend_mail"/>
+  <resources base="">
+    <resource path="vms/rest/users/admins/{vmsuserid}/resend_mail" id="/users/admins/resend_mail">
+      <doc xml:lang="en" title="/users/admins/resend_mail"/>
+      <param name="vmsuserid" default="${#Project#VmsuserId_user}" type="xs:string" required="false" style="template" xmlns:xs="http://www.w3.org/2001/XMLSchema"/>
+      <method name="PUT" id="Put">
+        <doc xml:lang="en" title="Put"/>
+        <request>
+          <representation mediaType="application/xml"/>
+        </request>
+        <response status="">
+          <representation mediaType="application/xml"/>
+        </response>
+        <response status="401">
+          <representation mediaType="text/html"/>
+        </response>
+        <response status="403">
+          <representation mediaType=""/>
+        </response>
+        <response status="200">
+          <representation mediaType="application/json;charset=UTF-8"/>
+        </response>
+      </method>
+    </resource>
+  </resources>
+</application>
